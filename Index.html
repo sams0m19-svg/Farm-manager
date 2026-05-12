@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مزرعة المدينة — نخيل وماعز وأغنام</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08090a;--sur:#0f1113;--card:#161a1d;--bdr:#252b2f;--gold:#c8922a;--gL:#e8b84b;--grn:#2d6a4f;--gnL:#52b788;--red:#c1121f;--rL:#e63946;--org:#e07b24;--blu:#1d6fa4;--bL:#48a9d4;--tel:#1a9e7a;--tlL:#2dd4a8;--pur:#6c3483;--prL:#9b59b6;--txt:#e8dcc8;--mut:#8a7d6a;--dim:#4a4035}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);direction:rtl;font-family:'Cairo',sans-serif;color:var(--txt);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:2px}
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:6px}
+.gb,.rb,.db,.ob{cursor:pointer;border:none;border-radius:4px;font-family:'Cairo',sans-serif;font-weight:700;padding:.42rem 1rem;font-size:.85rem;transition:all .15s}
+.gb{background:var(--gold);color:#0a0800}
+.gb:hover{background:var(--gL)}
+.rb{background:var(--grn);color:#fff}
+.rb:hover{background:var(--gnL)}
+.db{background:var(--red);color:#fff;padding:.26rem .55rem;font-size:.7rem}
+.db:hover{background:var(--rL)}
+.ob{border:1px solid var(--bdr);background:transparent;color:var(--mut);padding:.34rem .8rem;font-size:.77rem;font-weight:600}
+.ob:hover,.ob.on{border-color:var(--gL);color:var(--gL);background:#1a1400}
+.ob.gn{border-color:var(--gnL);color:var(--gnL);background:#0a1a0a}
+.ob.pn{border-color:var(--prL);color:var(--prL);background:#1a0a1a}
+.inp{background:var(--sur);border:1px solid var(--bdr);border-radius:4px;color:var(--txt);font-family:'Cairo',sans-serif;padding:.42rem .7rem;width:100%;font-size:.85rem;direction:rtl}
+.inp:focus{outline:none;border-color:var(--gold)}
+.sel{background:var(--sur);border:1px solid var(--bdr);border-radius:4px;color:var(--txt);font-family:'Cairo',sans-serif;padding:.4rem .65rem;font-size:.82rem;direction:rtl;width:100%}
+.sh{font-family:'Amiri',serif;color:var(--gL);font-size:1.05rem;font-weight:700;margin-bottom:.7rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.stat{background:var(--sur);border-radius:5px;padding:.55rem .75rem;text-align:center}
+.statv{font-weight:700;color:var(--gnL);font-size:.95rem;font-family:'Amiri',serif}
+.statl{color:var(--dim);font-size:.65rem;margin-top:.1rem}
+table{width:100%;border-collapse:collapse;font-size:.78rem}
+th{padding:.4rem .55rem;text-align:right;color:var(--gL);font-weight:700;font-size:.7rem;border-bottom:2px solid var(--bdr)}
+td{padding:.38rem .55rem;border-bottom:1px solid #25282e;color:var(--txt)}
+.dot{cursor:pointer;border-radius:50%;transition:transform .1s}
+.dot:hover{transform:scale(1.6);z-index:20}
+.bar{height:100%;border-radius:3px;transition:width .4s}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:999;display:flex;align-items:center;justify-content:center;padding:1rem}
+.modal-box{background:var(--card);border:1px solid var(--bdr);border-radius:8px;width:100%;max-width:430px;max-height:90vh;overflow-y:auto;padding:1.2rem;direction:rtl}
+#topbar{background:var(--sur);border-bottom:1px solid var(--bdr);padding:.45rem 1rem;display:flex;align-items:center;gap:.5rem;position:sticky;top:0;z-index:100}
+#fsw{background:#0a0c0e;border-bottom:1px solid var(--bdr);display:flex;position:sticky;top:49px;z-index:99}
+.fw{flex:1;padding:.5rem 0;cursor:pointer;border:none;font-family:'Cairo',sans-serif;font-size:.78rem;font-weight:700;background:var(--bg);color:var(--dim);border-bottom:2px solid transparent}
+.fw.act_p{border-bottom-color:var(--gL);color:var(--gL);background:#1a1408}
+.fw.act_g{border-bottom-color:var(--gnL);color:var(--gnL);background:#0a1208}
+.fw.act_s{border-bottom-color:var(--prL);color:var(--prL);background:#1a0a1a}
+.fw.act_h{border-bottom-color:var(--tlL);color:var(--tlL);background:#081210}
+#snav{background:var(--card);border-bottom:1px solid var(--bdr);display:flex;overflow-x:auto;scrollbar-width:none;position:sticky;top:93px;z-index:98}
+#snav::-webkit-scrollbar{display:none}
+.sn{padding:.45rem .85rem;cursor:pointer;border:none;font-family:'Cairo',sans-serif;font-size:.76rem;font-weight:600;background:transparent;color:var(--mut);border-bottom:2px solid transparent;white-space:nowrap}
+.sn.on{color:var(--gL);border-bottom-color:var(--gL)}
+.sn.gn{color:var(--gnL);border-bottom-color:var(--gnL)}
+.sn.pn{color:var(--prL);border-bottom-color:var(--prL)}
+#pg{padding:1rem;max-width:760px;margin:0 auto;padding-bottom:4rem}
+.taskrow{display:flex;align-items:flex-start;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #25282e;cursor:pointer}
+.chk{width:20px;height:20px;min-width:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;border:2px solid var(--bdr)}
+.chk.done{border-color:var(--gnL);background:var(--gnL)}
+.chk.done::after{content:"✓";color:#0a0a0a;font-size:.78rem;font-weight:900}
+</style>
+</head>
+<body>
+<div id="topbar">
+  <div style="font-family:'Amiri',serif;font-size:1rem;font-weight:700">
+    <span style="color:var(--gL)">🌴 نخيل</span>
+    <span style="color:var(--dim);margin:0 .25rem">×</span>
+    <span style="color:var(--gnL)">🐐 ماعز</span>
+    <span style="color:var(--dim);margin:0 .25rem">×</span>
+    <span style="color:var(--prL)">🐑 أغنام</span>
+  </div>
+  <div id="ti" style="color:var(--dim);font-size:.68rem;margin-right:auto">المدينة المنورة</div>
+</div>
+<div id="fsw">
+  <button class="fw act_p" id="fb_palm"  onclick="SF('palm')">🌴 النخيل</button>
+  <button class="fw"       id="fb_goat"  onclick="SF('goat')">🐐 الماعز</button>
+  <button class="fw"       id="fb_sheep" onclick="SF('sheep')">🐑 الأغنام</button>
+  <button class="fw"       id="fb_share" onclick="SF('share')">🔗 مشترك</button>
+</div>
+<div id="snav"></div>
+<div id="pg"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// COLORS
+// ════════════════════════════════════════════════════════════
+var C={bg:"#08090a",sur:"#0f1113",card:"#161a1d",bdr:"#252b2f",gold:"#c8922a",gL:"#e8b84b",grn:"#2d6a4f",gnL:"#52b788",red:"#c1121f",rL:"#e63946",org:"#e07b24",blu:"#1d6fa4",bL:"#48a9d4",tel:"#1a9e7a",tlL:"#2dd4a8",pur:"#6c3483",prL:"#9b59b6",txt:"#e8dcc8",mut:"#8a7d6a",dim:"#4a4035"};
+
+// ════════════════════════════════════════════════════════════
+// STATIC DATA
+// ════════════════════════════════════════════════════════════
+var VARS=[
+  {id:"ajwa",n:"عجوة",dot:"#c0392b",cnt:162},
+  {id:"safawi",n:"صفاوي",dot:"#607d8b",cnt:176},
+  {id:"anbara",n:"عنبرة",dot:"#8e44ad",cnt:52},
+  {id:"rothana",n:"روثانة",dot:"#a04000",cnt:38},
+  {id:"sukkari",n:"صقعي",dot:"#d4ac0d",cnt:21},
+  {id:"barni",n:"برني",dot:"#27ae60",cnt:19},
+  {id:"baydh",n:"بيض",dot:"#bdc3c7",cnt:16},
+  {id:"hilwa",n:"حلوة",dot:"#e67e22",cnt:7},
+  {id:"shalabi",n:"شلبي",dot:"#16a085",cnt:5},
+  {id:"rabia",n:"ربيعة",dot:"#1e8449",cnt:5},
+  {id:"hilali",n:"هلالي",dot:"#5b2c6f",cnt:1},
+  {id:"unknown",n:"غير محدد",dot:"#4a4a4a",cnt:0}
+];
+var VM={};for(var i=0;i<VARS.length;i++)VM[VARS[i].id]=VARS[i];
+
+var YB={
+  ajwa:{fg:85,pp:180,k:1.0,n:1.0,p:1.0},
+  safawi:{fg:90,pp:80,k:1.2,n:1.2,p:0.9},
+  anbara:{fg:100,pp:150,k:1.5,n:1.3,p:1.1},
+  rothana:{fg:85,pp:60,k:1.0,n:1.0,p:0.9},
+  sukkari:{fg:80,pp:120,k:1.2,n:1.0,p:0.9},
+  barni:{fg:85,pp:70,k:1.1,n:1.0,p:0.9},
+  baydh:{fg:70,pp:90,k:1.0,n:0.9,p:0.8},
+  hilwa:{fg:60,pp:100,k:1.0,n:0.9,p:0.8},
+  shalabi:{fg:65,pp:50,k:0.9,n:0.9,p:0.8},
+  rabia:{fg:70,pp:55,k:1.0,n:0.9,p:0.8},
+  hilali:{fg:65,pp:70,k:0.9,n:0.9,p:0.8}
+};
+
+var BREEDS=[
+  {id:"ardi",t:"goat",n:"عردي",dot:"#8b6914",wf:40,wm:51,milk:200,adg:149,dress:46,twin:33,pf:1800,pm:3200,sa:8,sw:35,notes:["أفضل تكيف حراري — 45°م","95% ولادة — 33% توأمية","نوى التمر حتى 20% من المركز"]},
+  {id:"damascus",t:"goat",n:"دمشقي",dot:"#c0392b",wf:65,wm:90,milk:514,adg:165,dress:48,twin:40,pf:6500,pm:16000,sa:8,sw:40,notes:["4 لتر/يوم ذروة الإنتاج","يحتاج تبريد صيفاً","ممتاز للألبان"]},
+  {id:"boer",t:"goat",n:"بور",dot:"#27ae60",wf:75,wm:120,milk:180,adg:250,dress:52,twin:45,pf:4000,pm:35000,sa:6,sw:40,notes:["أسرع نمو لحمي — 250جم/يوم","جاهز للبيع 6 أشهر عند 40كجم","بور×عردي F1 = الأمثل تسمينياً"]},
+  {id:"nubian",t:"goat",n:"نوبي",dot:"#e67e22",wf:62,wm:85,milk:735,adg:155,dress:47,twin:38,pf:4500,pm:10000,sa:9,sw:38,notes:["4.6-5% دهون حليب","يتحمل الحرارة نسبياً","حليبه أغلى 20-30%"]},
+  {id:"saanen",t:"goat",n:"سانين",dot:"#48a9d4",wf:70,wm:100,milk:900,adg:160,dress:48,twin:42,pf:7500,pm:18000,sa:9,sw:42,notes:["أعلى إنتاج حليب في العالم","حساس للحرارة","يحتاج تغذية مكثفة"]},
+  {id:"masri",t:"goat",n:"مصري",dot:"#16a085",wf:35,wm:48,milk:180,adg:130,dress:45,twin:30,pf:1200,pm:2200,sa:8,sw:30,notes:["صغير الحجم — كفاءة عالية","مقاوم للأمراض","الأرخص سعراً"]},
+  {id:"naimi",t:"sheep",n:"نعيمي",dot:"#d4ac0d",wf:45,wm:65,milk:90,adg:175,dress:50,twin:15,pf:1895,pm:4500,sa:7,sw:38,notes:["1,895 ريال متوسط رسمي (إحصاء 4/2025)","لحم عالي الجودة — طلب أعلى","يتحمل الجفاف والحرارة"]},
+  {id:"najdi",t:"sheep",n:"نجدي",dot:"#a04000",wf:50,wm:75,milk:100,adg:165,dress:49,twin:12,pf:1864,pm:4200,sa:7,sw:42,notes:["1,864 ريال متوسط رسمي (إحصاء 4/2025)","كبير الحجم — الذيل الدهني مطلوب","مناسب للمدينة"]},
+  {id:"harri",t:"sheep",n:"حري",dot:"#8e44ad",wf:42,wm:60,milk:85,adg:160,dress:48,twin:18,pf:1740,pm:3800,sa:7,sw:36,notes:["1,740 ريال متوسط رسمي (إحصاء 4/2025)","أصيل الحجاز","لحمه ذو نكهة مميزة"]},
+  {id:"sawakni",t:"sheep",n:"سواكني",dot:"#1a9e7a",wf:38,wm:55,milk:80,adg:150,dress:47,twin:20,pf:1276,pm:2800,sa:8,sw:32,notes:["1,276 ريال متوسط رسمي (إحصاء 4/2025)","تعدد ولادات أعلى","لحمه خفيف الدهون"]},
+  {id:"dorper",t:"sheep",n:"دوربر",dot:"#e63946",wf:65,wm:100,milk:120,adg:260,dress:55,twin:30,pf:4500,pm:12000,sa:5,sw:45,notes:["أسرع نمو في العالم — 260جم/يوم","جاهز للبيع في 5 أشهر","يحتاج تغذية مكثفة"]}
+];
+var BM={};for(var i=0;i<BREEDS.length;i++)BM[BREEDS[i].id]=BREEDS[i];
+
+var PALM_DAILY=[
+  {id:"pd1",tx:"جولة الري وفحص القطارات",det:"كل خط ري — استبدال القطارات المسدودة فوراً | الاحتياج: 90-180 لتر/شجرة/يوم",p:"c",s:"ص"},
+  {id:"pd2",tx:"قراءة عداد المياه",det:"الاستهلاك المتوقع 130 م³/يوم لـ 502 نخلة | إذا أعلى = تسرب",p:"i",s:"ص"},
+  {id:"pd3",tx:"فحص 10% من النخيل بصرياً (~50 نخلة)",det:"ابحث عن: ثقوب سوسة / اصفرار / تعفن البرعم / رائحة كريهة",p:"c",s:"ص"},
+  {id:"pd4",tx:"فحص مصائد الفيرومون",det:"4-7 مصائد/هكتار = 15-26 مصيدة | تنبيه إذا أكثر من 3 حشرات/أسبوع/مصيدة",p:"i",s:"ص"},
+  {id:"pd5",tx:"تسجيل أي نخلة مشبوهة وإبلاغ المشرف",det:"اكتب رقم النخلة + الموقع + الأعراض",p:"c",s:"م"}
+];
+
+var ANIM_DAILY=[
+  {id:"ad1",tx:"وجبة الصباح — 60% من الكمية اليومية",det:"البالغات: برسيم 0.8كجم + شعير 0.2كجم + معادن — الصغار: برسيم 0.4كجم + شعير 0.1كجم — الفحل FM01: برسيم 1كجم + شعير 0.3كجم",p:"c",s:"ص",time:"5:00"},
+  {id:"ad2",tx:"فحص المشارب وضغط الماء",det:"الاحتياج: 22 رأس × 12 لتر = 264 لتر/يوم | صيفاً ضاعف الكمية",p:"c",s:"ص",time:"5:30"},
+  {id:"ad3",tx:"جولة صحية صباحية لكل الحيوانات",det:"ابحث في كل رأس عن: خمول / سيلان أنف / سعال / إسهال / عرج | قياس حرارة لأي مشبوه (طبيعي 38.5-40°م)",p:"c",s:"ص",time:"6:00"},
+  {id:"ad4",tx:"عزل أي حيوان مريض فوراً",det:"غرفة العزل: 21 يوم للواردين الجدد | المريض يُعزل نفس اليوم",p:"c",s:"ص",time:"6:30"},
+  {id:"ad5",tx:"عد الرؤوس والتأكد من اكتمال الأعداد",det:"المجموع 22 رأس | عردي 14 | مصري 3 | بور 5 | يجب التحقق فوراً من أي نقص",p:"c",s:"ص",time:"6:45"},
+  {id:"ad6",tx:"إزالة الروث وتنظيف الأقلام",det:"ركّم الروث للتخمر — بعد 30 يوم يستخدم سماداً للنخيل 25-50 كجم/شجرة",p:"c",s:"ص",time:"7:00"},
+  {id:"ad7",tx:"وجبة الظهر — للحوامل والمرضعات فقط",det:"BO01 و BO02 (بور): برسيم إضافي 0.3كجم + نوى تمر 0.2كجم + ماء بارد",p:"i",s:"ص",time:"12:00"},
+  {id:"ad8",tx:"وجبة المساء — 40% من الكمية اليومية",det:"البالغات: برسيم 0.6كجم + شعير 0.1كجم — الصغار: برسيم 0.3كجم — الفحل: برسيم 0.7كجم + شعير 0.2كجم",p:"c",s:"م",time:"17:00"},
+  {id:"ad9",tx:"جولة صحية مسائية — تركيز على الحوامل",det:"BO01 و BO02: تحقق علامات الحمل والولادة | المرضعات: فحص الضرع",p:"c",s:"م",time:"18:00"},
+  {id:"ad10",tx:"تسجيل المواليد والوفيات اليومية",det:"المولود: لبأ 10% من وزنه خلال ساعة + غمس السرة باليود 7% + وزن + رقم",p:"c",s:"م",time:"18:30"},
+  {id:"ad11",tx:"إغلاق وتأمين جميع الأقلام",det:"تحقق من بوابة الفحل FM01 — الصغار — البوابة الرئيسية — إضاءة ليلية",p:"c",s:"م",time:"19:00"}
+];
+
+var WEEKLY_PALM={
+  0:[{id:"wp_s1",tx:"فحص 25% من النخيل لسوسة النخيل الحمراء",det:"126 نخلة كل أحد | تنظيف قواعد الجذوع",p:"c"}],
+  3:[{id:"wp_w1",tx:"قراءة استهلاك المياه الأسبوعي",det:"اجمع قراءات الأيام — قارن بالمتوقع 910 م³/أسبوع",p:"i"}],
+  5:[{id:"wp_f1",tx:"تقرير أسبوعي: حالة النخيل + المصائد",det:"عدد النخيل المشبوهة + الحشرات في المصائد + استهلاك المياه",p:"i"}]
+};
+
+var WEEKLY_ANIMAL={
+  0:[{id:"wa_s1",tx:"وزن عينة 10% من القطيع (3 رؤوس)",det:"JF01 + TY01 + BO01 | هدف ADG: بور 250جم/يوم، عردي 149جم/يوم",p:"c"}],
+  1:[{id:"wa_m1",tx:"تنظيف المشارب بمحلول كلور 0.5%",det:"1 لتر كلور + 200 لتر ماء | افرك جيداً ثم اشطف ثلاث مرات",p:"c"}],
+  3:[{id:"wa_w1",tx:"فحص FAMACHA — لون اللثة لكل القطيع",det:"درجة 1-2: طبيعي | 3: مراقبة | 4-5: ألبيندازول 10مجم/كجم فوراً + تكرار بعد 21 يوم",p:"c"}],
+  5:[{id:"wa_f1",tx:"فحص BCS (حالة جسم 1-5)",det:"هدف 2.5-3.5/5 | أقل: زد العلف 20% | أكثر: قلل المركز 20%",p:"i"},
+     {id:"wa_f2",tx:"فحص ثلاجة اللقاحات (يجب 2-8°م)",det:"سجل درجة الحرارة | لقاح تالف = قطيع بلا حماية",p:"c"},
+     {id:"wa_f3",tx:"تقرير أسبوعي للمشرف",det:"الأوزان + الصحة + المواليد + استهلاك العلف",p:"i"}]
+};
+
+var SEASONAL_PALM={
+  1:[{id:"sp_j1",tx:"سماد بلدي 25-50 كجم/شجرة",det:"إجمالي 12.5-25 طن في حلقة 1م حول الجذع",p:"i"}],
+  2:[{id:"sp_f1",tx:"الجرعة الأولى NPK + بورون 0.1% + زنك 0.3%",det:"580كجم نترات أمونيوم + 500كجم سوبر فوسفات | رش 500 لتر ماء + 500جم بورات + 1.5كجم زنك",p:"c"},
+     {id:"sp_f2",tx:"تركيب مصائد الفيرومون 4-7/هكتار",det:"15-26 مصيدة على الأطراف | خلطة جذب نخل أصلية",p:"c"}],
+  3:[{id:"sp_m1",tx:"التلقيح صباحاً 5-6 عيدان أو رذاذ",det:"نافذة الإسباطة 48 ساعة | تلقيح مرتين بفارق يوم",p:"c"}],
+  4:[{id:"sp_a1",tx:"خف الثمار 25-50% الصغيرة",det:"الهدف 8-12 ثمرة/عذق | يزيد حجم الثمرة 30-40%",p:"c"},
+     {id:"sp_a2",tx:"الجرعة الثانية K: كبريتات بوتاسيوم",det:"1.5كجم K₂O/شجرة × 502 = 753كجم SOP | سقية فورية",p:"i"}],
+  5:[{id:"sp_my1",tx:"🔴 نيتروجين ناقص — نترات أمونيوم 500-700جم/شجرة",det:"إجمالي 251-351كجم للمزرعة + سقية فورية | ضروري هذا الشهر",p:"c"},
+     {id:"sp_my2",tx:"رش ورقي: زنك 0.3% + حديد 0.2% + بورون 0.1%",det:"صباح باكر قبل 9ص | 500 لتر ماء يكفي للمزرعة كاملة",p:"i"},
+     {id:"sp_my3",tx:"الجرعة الثانية GranuPotasse 1كجم/شجرة + مبيد",det:"502كجم SOP + إيميداكلوبريد 10مل/شجرة حقن جذع",p:"i"},
+     {id:"sp_my4",tx:"مراقبة الخامج على الإسباطات",det:"بقع بنية على الإسباطات | إزالة المصاب وحرقه",p:"c"}],
+  6:[{id:"sp_u1",tx:"تركيب دعامات العذوق",det:"اربط العذوق >15كجم بحبل ناعم للجذع",p:"c"},
+     {id:"sp_u2",tx:"تغليف العذوق بأكياس غير منسوجة",det:"أكياس 50×80سم — تبقى من الخلال حتى الحصاد",p:"i"},
+     {id:"sp_u3",tx:"الجرعة الثالثة NPK + إيميداكلوبريد",det:"200كجم N + 450كجم K₂O + 10-20مل/شجرة حقن",p:"c"}],
+  9:[{id:"sp_s1",tx:"حصاد الروثانة (رطب) ثم الصفاوي والعجوة",det:"حصاد يدوي صباحاً | تبريد فوري: درجة أولى → -18°م",p:"c"},
+     {id:"sp_s2",tx:"توثيق وزن كل صنف + درجة الجودة + السعر",det:"كل عذق على حدة في النظام",p:"i"}],
+  10:[{id:"sp_o1",tx:"الجرعة الرابعة NPK للاستعادة",det:"200كجم N + 500كجم P₂O₅",p:"i"},
+      {id:"sp_o2",tx:"تقليم رئيسي — تعقيم الأدوات بكلور 10%",det:"تجنب التقليم مارس-أكتوبر",p:"c"}],
+  11:[{id:"sp_n1",tx:"مراجعة تحاليل التربة والمياه",det:"عينات من 5 مناطق + EC/pH/N/P/K",p:"i"}],
+  12:[{id:"sp_d1",tx:"فحص وإصلاح بنية الري",det:"تنظيف القطارات + تغيير المسدود",p:"i"}]
+};
+
+var SEASONAL_ANIMAL={
+  2:[{id:"sa_f1",tx:"CDT تعزيز للحوامل قبل الولادة 4-6 أسابيع",det:"2مل تحت الجلد | تحمي المولود من التسمم المعوي",p:"c"},
+     {id:"sa_f2",tx:"تجهيز حجرات الولادة ومخزون اللبأ",det:"3 حجرات منفصلة + لبأ مجمد للطوارئ",p:"c"}],
+  3:[{id:"sa_m1",tx:"موسم الولادة — إشراف 24 ساعة",det:"المولود: لبأ خلال ساعة 10% من وزنه + يود 7% للسرة + وزن",p:"c"}],
+  4:[{id:"sa_a1",tx:"تطعيم الصغار CDT (6-8 أسابيع)",det:"الجرعة الأولى 2مل تحت الجلد | كرر بعد 3-4 أسابيع",p:"c"},
+     {id:"sa_a2",tx:"تطعيم FMD الجرعة الأولى — إلزامي MEWA",det:"جميع ≥4 أشهر | IM 1مل",p:"c"}],
+  5:[{id:"sa_my1",tx:"🔴 PPR واجب الآن: JF01-JF05 و TY01-TY03",det:"1مل IM مرة واحدة مدى الحياة | لا تأخير",p:"c"},
+     {id:"sa_my2",tx:"CDT للصغار 6-8 أسابيع",det:"2مل تحت الجلد | كرر بعد 3 أسابيع",p:"c"},
+     {id:"sa_my3",tx:"تجهيز التهوية الصيفية",det:"مراوح + ضباب تبريد | هدف <30°م",p:"c"}],
+  6:[{id:"sa_u1",tx:"إدارة حرارة الصيف",det:"الماء 15-18 لتر/رأس | تغذية 5ص + بعد المغرب فقط",p:"c"}],
+  7:[{id:"sa_jl1",tx:"توزيع نوى التمر بعد الحصاد",det:"حتى 20% من المركز | يوفر 15-25% من تكلفة العلف",p:"i"}],
+  9:[{id:"sa_s1",tx:"موسم عيد الأضحى — تسمين وتسعير",det:"بور 6 أشهر عند 40كجم → 1,800-2,400 ريال",p:"c"}],
+  11:[{id:"sa_n1",tx:"موسم التلقيح — FM01 مع الإناث",det:"FM01 مع GM01/02 + GA01 + GH01/02 | نسبة 1:5-10",p:"c"}],
+  12:[{id:"sa_d1",tx:"وزن جميع الحيوانات + تحليل مالي سنوي",det:"BCS لكل رأس + تكلفة وإيراد لكل حيوان",p:"i"}]
+};
+
+var VAX=[
+  {n:"PPR (طاعون المجترات)",age:"3 أشهر",freq:"كل 3 سنوات",p:"c",note:"إلزامي MEWA — مدى الحياة"},
+  {n:"FMD (الحمى القلاعية)",age:"3-4 أشهر",freq:"كل 6 أشهر",p:"c",note:"تحقق من السلالات سنوياً"},
+  {n:"CDT (مطثية + كزاز)",age:"6-8 أسابيع",freq:"سنوياً + قبل الولادة",p:"c",note:"تعزيز الأمهات يحمي الصغار"},
+  {n:"جدري الأغنام والماعز",age:"3-5 أشهر",freq:"سنوياً",p:"i",note:"إلزامي مرسوم م/13"},
+  {n:"CCPP (التهاب الرئوي)",age:"3-4 أشهر",freq:"سنوياً",p:"i",note:"وفيات 60-100% بلا تطعيم"},
+  {n:"الحمى المالطية Rev-1",age:"3-6 أشهر إناث",freq:"مرة واحدة",p:"c",note:"للإناث البديلة فقط"}
+];
+
+var PALM_DIS=[
+  {n:"سوسة النخيل الحمراء",sev:"حرج",bc:C.rL,sym:["ثقوب في الجذع مع مادة ليفية بنية","رائحة تعفن كريهة","اصفرار القمة"],tx:["حقن إيميداكلوبريد 10-20مل في ثقوب الجذع","مصائد فيرومون 4-7/هكتار","قص النخيل المتضرر وحرقه"],prev:"فحص شهري | تجنب التقليم مارس-أكتوبر"},
+  {n:"الحرق الأسود",sev:"عالي",bc:C.rL,sym:["آفات سوداء صلبة على الأوراق","تعفن البرعم الطرفي"],tx:["قص المصاب وحرقه","رش خليط بوردو + Topsin M"],prev:"تعقيم أدوات التقليم بكلور 10%"},
+  {n:"الويجام",sev:"حرج",bc:C.rL,sym:["خطوط صفراء على السعف الجديد","تراجع بطيء في النمو"],tx:["حقن تتراسيكلين 20جم/نخلة × 3 مرات","أبلغ وزارة الزراعة فوراً"],prev:"مكافحة الحشرات الماصة الناقلة"},
+  {n:"الخامج",sev:"متوسط-عالي",bc:C.org,sym:["مناطق بنية على الإسباطات","لا ثمار من الإسباطات المصابة"],tx:["إزالة الإسباطات المصابة وحرقها","رش خليط بوردو بعد الحصاد"],prev:"مراقبة يومية موسم التزهير"}
+];
+
+var ANIM_DIS=[
+  {n:"CCPP (التهاب رئوي معدٍ)",sev:"حرج",bc:C.rL,sym:["حمى >41°م","سعال جاف ثم رطب","وفيات 60-100%"],tx:["تايلوسين 10مجم/كجم IM مرتين × 5-7 أيام","عزل فوري"],prev:"تطعيم سنوي | عزل واردين 21 يوم"},
+  {n:"PPR (طاعون المجترات)",sev:"حرج",bc:C.rL,sym:["حمى مفاجئة","تقرحات الفم","إسهال حاد","وفيات 50-90%"],tx:["أوكسيتتراسيكلين 10مجم/كجم × 5 أيام","محاليل وريدية للجفاف"],prev:"تطعيم مرة واحدة عند 3 أشهر — مدى الحياة"},
+  {n:"داء البروسيلات",sev:"عالي",bc:C.rL,sym:["إجهاض في الشهر الأخير","عقم","التهاب الخصية"],tx:["ذبح إجباري","تعقيم بفورمالين 5%","إبلاغ MEWA 24 ساعة"],prev:"Rev-1 للإناث البديلة | فحص دوري"},
+  {n:"التسمم المعوي",sev:"عالي",bc:C.org,sym:["موت مفاجئ في الصغار","تشنجات","انتفاخ"],tx:["مصل CDT 5-25مل","بنسلين G 22000 وحدة/كجم × 5 أيام"],prev:"تطعيم CDT سنوي + تعزيز قبل الولادة"},
+  {n:"الطفيليات (هيمونكوس)",sev:"متوسط",bc:C.org,sym:["شحوب اللثة","وذمة تحت الفك","هزال"],tx:["ألبيندازول 10مجم/كجم فموياً","إيفرمكتين 0.4مجم/كجم","تكرار بعد 21 يوم"],prev:"FAMACHA شهري | تناوب مبيدات الطفيليات"}
+];
+
+// ════════════════════════════════════════════════════════════
+// PALM GRID
+// ════════════════════════════════════════════════════════════
+var COLS=23,ROWS=22;
+function isOut(r,c){
+  if(r<3&&c<3)return true;if(r<2&&c<6)return true;if(r===0&&c<9)return true;
+  if(r<4&&c>20)return true;if(r<2&&c>18)return true;if(r>19&&c<2)return true;
+  if(r>20&&c<5)return true;if(r>21)return true;return false;
+}
+function buildTrees(){
+  var order=[];
+  for(var vi=0;vi<VARS.length;vi++){
+    if(VARS[vi].id==="unknown")continue;
+    for(var k=0;k<VARS[vi].cnt;k++)order.push(VARS[vi].id);
+  }
+  for(var i=order.length-1;i>0;i--){
+    var j=(i*1103515245+12345)%(i+1);
+    var tmp=order[i];order[i]=order[j];order[j]=tmp;
+  }
+  var dist={};
+  for(var x=0;x<order.length;x++)dist[x+1]=order[x];
+  var arr=[];var id=1;
+  for(var r=0;r<ROWS;r++){
+    for(var c=0;c<COLS;c++){
+      if(isOut(r,c))continue;
+      arr.push({id:"T"+("000"+id).slice(-3),row:r,col:c,variety:dist[id]||"unknown",status:"healthy"});
+      id++;
+    }
+  }
+  return arr;
+}
+
+// ════════════════════════════════════════════════════════════
+// STORAGE
+// ════════════════════════════════════════════════════════════
+function sv(k,v){try{localStorage.setItem("fm_"+k,JSON.stringify(v));}catch(e){}}
+function ld(k,def){try{var r=localStorage.getItem("fm_"+k);return r!==null?JSON.parse(r):def;}catch(e){return def;}}
+
+// ════════════════════════════════════════════════════════════
+// ANIMAL DEFAULTS (22 animals)
+// ════════════════════════════════════════════════════════════
+var ANIM_DEFAULT=[
+  {id:"JF01",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"جفرة عردي — 3 أشهر"},
+  {id:"JF02",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"جفرة عردي — 3 أشهر"},
+  {id:"JF03",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"جفرة عردي — 3 أشهر"},
+  {id:"JF04",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"جفرة عردي — 3 أشهر"},
+  {id:"JF05",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"جفرة عردي — 3 أشهر"},
+  {id:"JF06",br:"ardi",sex:"kid",dob:"2026-04-27",cond:"growing",pp:null,note:"جفرة عردي — أسبوعين"},
+  {id:"TY01",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"تيس عردي — 3 أشهر"},
+  {id:"TY02",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"تيس عردي — 3 أشهر"},
+  {id:"TY03",br:"ardi",sex:"kid",dob:"2026-02-09",cond:"growing",pp:null,note:"تيس عردي — 3 أشهر"},
+  {id:"TY04",br:"ardi",sex:"kid",dob:"2026-04-27",cond:"growing",pp:null,note:"تيس عردي — أسبوعين"},
+  {id:"GM01",br:"masri",sex:"female",dob:"2024-05-11",cond:"dry",pp:null,note:"ماعز مصرية بالغة"},
+  {id:"GM02",br:"masri",sex:"female",dob:"2024-05-11",cond:"dry",pp:null,note:"ماعز مصرية بالغة"},
+  {id:"GA01",br:"ardi",sex:"female",dob:"2024-05-11",cond:"dry",pp:null,note:"ماعز عردية بالغة"},
+  {id:"GH01",br:"ardi",sex:"female",dob:"2024-05-11",cond:"dry",pp:null,note:"عارضية هجين (عردي×مصري)"},
+  {id:"GH02",br:"ardi",sex:"female",dob:"2024-05-11",cond:"dry",pp:null,note:"عارضية هجين (عردي×مصري)"},
+  {id:"FM01",br:"masri",sex:"male",dob:"2024-11-10",cond:"",pp:null,note:"فحل مصري أبرص — سنة ونص"},
+  {id:"BO01",br:"boer",sex:"female",dob:"2025-05-11",cond:"dry",pp:null,note:"ماعز بور — سنة"},
+  {id:"BO02",br:"boer",sex:"female",dob:"2025-05-11",cond:"dry",pp:null,note:"ماعز بور — سنة"},
+  {id:"BJ01",br:"boer",sex:"kid",dob:"2025-11-22",cond:"growing",pp:null,note:"جفرة بور — 22/11/2025"},
+  {id:"BT01",br:"boer",sex:"kid",dob:"2025-11-22",cond:"growing",pp:null,note:"تيس بور — 22/11/2025"},
+  {id:"BT02",br:"boer",sex:"kid",dob:"2026-03-17",cond:"growing",pp:null,note:"تيس بور — 17/03/2026"},
+  {id:"SV01",br:"boer",sex:"kid",dob:"2026-03-16",cond:"growing",pp:null,note:"جفرة بور×سافانا — 16/03/2026"}
+];
+
+// ════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════
+var S={
+  farm:"palm",view:"map",
+  trees:[],td:{},selTree:null,fv:"all",ptab:"info",
+  animals:[],ad:{},selA:null,atab:"info",fbr:"all",
+  yields:[],pdl:[],adl:[],
+  mz:1,mx:0,my:0,
+  sess:"all"
+};
+
+function loadAll(){
+  S.trees=ld("trees",null)||buildTrees();
+  S.td=ld("td",{});
+  S.animals=ld("animals",ANIM_DEFAULT);
+  S.ad=ld("ad",{});
+  S.yields=ld("yields",[]);
+  S.pdl=ld("pdl",[]);
+  S.adl=ld("adl",[]);
+}
+function sav_a(){sv("animals",S.animals);sv("ad",S.ad);}
+function sav_t(){sv("trees",S.trees);}
+function sav_td(){sv("td",S.td);}
+
+// ════════════════════════════════════════════════════════════
+// HELPERS (depend on STATE — defined after it)
+// ════════════════════════════════════════════════════════════
+function ageMo(dob){if(!dob)return null;return Math.floor((Date.now()-new Date(dob).getTime())/2592000000);}
+function ageStr(dob){var m=ageMo(dob);if(m===null)return"—";if(m<12)return m+"شهر";return Math.floor(m/12)+"سنة "+(m%12)+"شهر";}
+function estVal(a){
+  var b=BM[a.br];if(!b)return 0;
+  var base=a.sex==="male"?b.pm:(a.sex==="female"?b.pf:b.pf*0.4);
+  var m=ageMo(a.dob)||0;
+  if(m<3)return Math.round(base*0.15);
+  if(m<6)return Math.round(base*0.35);
+  if(m<12)return Math.round(base*0.6);
+  if(m<24)return Math.round(base*0.85);
+  return base;
+}
+function condL(c){var map={pregnant:"حامل",lactating:"حلوب",dry:"جافة",growing:"نامي",fattening:"تسمين",sick:"مريض",breeding:"تلقيح"};return map[c]||c||"—";}
+function priColor(p){if(p==="c")return C.rL;if(p==="i")return "#ffd166";return C.mut;}
+function predictOff(sireId,damId){var s=BM[sireId];var d=BM[damId];if(!s||!d)return"غير محدد";if(sireId===damId)return s.n+" أصيل";return"½"+s.n+" × ½"+d.n;}
+
+function getUrgent(){
+  var alerts=[];
+  for(var i=0;i<S.animals.length;i++){
+    var a=S.animals[i];
+    var m=ageMo(a.dob)||0;
+    var evs=(S.ad[a.id]&&S.ad[a.id].events)||[];
+    var hasPPR=false,hasCDT=false;
+    for(var j=0;j<evs.length;j++){
+      if(evs[j].type==="vaccine"){
+        var v=(evs[j].val||"");
+        if(v.indexOf("PPR")>=0)hasPPR=true;
+        if(v.indexOf("CDT")>=0)hasCDT=true;
+      }
+    }
+    if(m>=3&&m<=5&&!hasPPR){alerts.push({id:"u_ppr_"+a.id,tx:"🔴 PPR واجب الآن — "+a.id+" ("+m+" أشهر)",det:"1مل IM مرة واحدة مدى الحياة",p:"c",s:"ص"});}
+    if(m>=1&&m<=3&&!hasCDT){alerts.push({id:"u_cdt_"+a.id,tx:"🟡 CDT جرعة أولى — "+a.id+" ("+m+" شهر)",det:"2مل تحت الجلد",p:"i",s:"ص"});}
+  }
+  return alerts;
+}
+
+// ════════════════════════════════════════════════════════════
+// MODAL
+// ════════════════════════════════════════════════════════════
+var MODAL=null;
+function showModal(html){
+  if(MODAL)MODAL.remove();
+  var bg=document.createElement("div");
+  bg.className="modal-bg";
+  bg.innerHTML="<div class='modal-box'>"+html+"</div>";
+  bg.addEventListener("click",function(e){if(e.target===bg)closeModal();});
+  document.body.appendChild(bg);
+  MODAL=bg;
+}
+function closeModal(){if(MODAL){MODAL.remove();MODAL=null;}}
+
+// ════════════════════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════════════════════
+var NAVS={
+  palm:[{v:"map",l:"🗺️ الخريطة"},{v:"spacing",l:"📐 التباعد"},{v:"tasks",l:"✅ الأعمال"},{v:"dis",l:"🦠 الأمراض"},{v:"yield",l:"📊 الإنتاج"},{v:"nut",l:"🧮 التسميد"},{v:"harv",l:"🏆 التصنيف"}],
+  goat:[{v:"herd",l:"🐐 القطيع"},{v:"vax",l:"💉 التطعيمات"},{v:"tasks",l:"✅ الأعمال"},{v:"dis",l:"🦠 الأمراض"},{v:"ration",l:"🌿 العليقة"},{v:"bench",l:"📊 المعايير"}],
+  sheep:[{v:"herd",l:"🐑 القطيع"},{v:"vax",l:"💉 التطعيمات"},{v:"tasks",l:"✅ الأعمال"},{v:"dis",l:"🦠 الأمراض"},{v:"ration",l:"🌿 العليقة"},{v:"bench",l:"📊 المعايير"}],
+  share:[{v:"integ",l:"🌴🐐 التكامل"},{v:"fin",l:"💰 المالية"},{v:"sync",l:"☁️ مشاركة"}]
+};
+function aCls(){if(S.farm==="goat")return"gn";if(S.farm==="sheep")return"pn";return"on";}
+function farmTopClass(f){var map={palm:"act_p",goat:"act_g",sheep:"act_s",share:"act_h"};return map[f]||"act_p";}
+
+function SF(f){
+  S.farm=f;
+  S.view=NAVS[f][0].v;
+  var btns=document.querySelectorAll(".fw");
+  for(var i=0;i<btns.length;i++)btns[i].className="fw";
+  var targetBtn=document.getElementById("fb_"+f);
+  if(targetBtn)targetBtn.className="fw "+farmTopClass(f);
+  renderNav();render();
+}
+function SV(v){S.view=v;renderNav();render();}
+
+function renderNav(){
+  var nav=NAVS[S.farm]||[];
+  var ac=aCls();
+  var h="";
+  for(var i=0;i<nav.length;i++){
+    var n=nav[i];
+    var cls="sn";
+    if(S.view===n.v)cls+=" "+ac;
+    h+="<button class='"+cls+"' onclick=\"SV('"+n.v+"')\">"+n.l+"</button>";
+  }
+  if(S.selTree&&S.farm==="palm"){
+    var cls2="sn";if(S.view==="tree")cls2+=" on";
+    h+="<button class='"+cls2+"' onclick=\"SV('tree')\">🌴 "+S.selTree.id+"</button>";
+  }
+  if(S.selA&&(S.farm==="goat"||S.farm==="sheep")){
+    var cls3="sn";if(S.view==="animal")cls3+=" "+ac;
+    h+="<button class='"+cls3+"' onclick=\"SV('animal')\">👤 "+S.selA.id+"</button>";
+  }
+  document.getElementById("snav").innerHTML=h;
+  var g=0,sh=0;
+  for(var i=0;i<S.animals.length;i++){
+    var b=BM[S.animals[i].br];
+    if(b){if(b.t==="goat")g++;else sh++;}
+  }
+  document.getElementById("ti").textContent="502 نخلة • "+g+" ماعزة • "+sh+" خروف";
+}
+
+// ════════════════════════════════════════════════════════════
+// RENDER DISPATCH
+// ════════════════════════════════════════════════════════════
+function render(){
+  var pg=document.getElementById("pg");
+  pg.style.display="block";
+  var mw=document.getElementById("mapwrap");
+  if(mw)mw.remove();
+  var v=S.view,f=S.farm;
+  if(f==="palm"){
+    if(v==="map"){renderMap();return;}
+    if(v==="tree"){pg.innerHTML=pgPalmTree();return;}
+    if(v==="spacing"){pg.innerHTML=pgSpacing();return;}
+    if(v==="tasks"){pg.innerHTML=pgTasks("palm");return;}
+    if(v==="dis"){pg.innerHTML=pgDis("palm");return;}
+    if(v==="yield"){pg.innerHTML=pgYield();return;}
+    if(v==="nut"){pg.innerHTML=pgNut();return;}
+    if(v==="harv"){pg.innerHTML=pgHarv();return;}
+  }
+  if(f==="goat"||f==="sheep"){
+    if(v==="herd"){pg.innerHTML=pgHerd(f);return;}
+    if(v==="animal"){pg.innerHTML=pgAnimal();return;}
+    if(v==="vax"){pg.innerHTML=pgVax();return;}
+    if(v==="tasks"){pg.innerHTML=pgTasks(f);return;}
+    if(v==="dis"){pg.innerHTML=pgDis("animal");return;}
+    if(v==="ration"){pg.innerHTML=pgRation(f);return;}
+    if(v==="bench"){pg.innerHTML=pgBench(f);return;}
+  }
+  if(f==="share"){
+    if(v==="integ"){pg.innerHTML=pgInteg();return;}
+    if(v==="fin"){pg.innerHTML=pgFin();return;}
+    if(v==="sync"){pg.innerHTML=pgSync();return;}
+  }
+  pg.innerHTML="<p style='text-align:center;padding:3rem;color:var(--mut)'>...</p>";
+}
+
+// ════════════════════════════════════════════════════════════
+// MAP — pure string concat
+// ════════════════════════════════════════════════════════════
+function renderMap(){
+  var pg=document.getElementById("pg");
+  pg.style.display="none";
+  var CW=26;
+  var byPos={};
+  for(var i=0;i<S.trees.length;i++){byPos[S.trees[i].row+","+S.trees[i].col]=S.trees[i];}
+
+  var rows=[];
+  for(var r=0;r<ROWS;r++){
+    var cols=[];
+    for(var c=0;c<COLS;c++){
+      if(isOut(r,c)){cols.push("<div style='width:"+CW+"px;height:"+CW+"px'></div>");continue;}
+      var t=byPos[r+","+c];
+      if(!t){cols.push("<div style='width:"+CW+"px;height:"+CW+"px'></div>");continue;}
+      var vd=VM[t.variety]||VM.unknown;
+      var op=(S.fv!=="all"&&t.variety!==S.fv)?"0.08":"1";
+      var dc=t.status==="diseased"?C.rL:(t.status==="warning"?C.org:vd.dot);
+      var hasDis=(S.td[t.id]&&S.td[t.id].diseases&&S.td[t.id].diseases.length>0);
+      var brd=hasDis?"1.5px solid "+C.rL:"1px solid "+dc+"66";
+      cols.push("<div style='width:"+CW+"px;height:"+CW+"px;display:flex;align-items:center;justify-content:center'><div class='dot' data-tid='"+t.id+"' style='width:15px;height:15px;background:"+dc+";opacity:"+op+";border:"+brd+"' title='"+t.id+" — "+vd.n+"'></div></div>");
+    }
+    rows.push("<div style='display:flex'>"+cols.join("")+"</div>");
+  }
+
+  var leg="";
+  for(var i=0;i<VARS.length;i++){
+    var v=VARS[i];if(v.id==="unknown")continue;
+    var lop=(S.fv!=="all"&&S.fv!==v.id)?"0.15":"1";
+    leg+="<div onclick=\"TF('"+v.id+"')\" style='display:flex;align-items:center;gap:.25rem;cursor:pointer;opacity:"+lop+"'><div style='width:8px;height:8px;border-radius:50%;background:"+v.dot+"'></div><span style='color:var(--mut);font-size:.65rem'>"+v.n+" ("+v.cnt+")</span></div>";
+  }
+
+  var opts="<option value='all'>جميع الأصناف ("+S.trees.length+")</option>";
+  for(var i=0;i<VARS.length;i++){
+    var v3=VARS[i];if(v3.id==="unknown")continue;
+    var sel=(S.fv===v3.id)?" selected":"";
+    opts+="<option value='"+v3.id+"'"+sel+">"+v3.n+" ("+v3.cnt+")</option>";
+  }
+
+  var html="<div style='display:flex;gap:.4rem;padding:.45rem 1rem;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--bdr);background:var(--sur)'>"+
+    "<select id='mvf' class='sel' style='width:auto;font-size:.75rem;padding:.25rem .5rem' onchange=\"TF(this.value)\">"+opts+"</select>"+
+    "<span style='color:var(--mut);font-size:.72rem;margin-right:auto'>انقر على نخلة لفتح ملفها</span>"+
+    "<button class='ob' onclick='chgZoom(0.3)'>＋</button>"+
+    "<button class='ob' onclick='chgZoom(-0.3)'>－</button>"+
+    "<button class='ob' onclick='resetMap()'>↺</button>"+
+    "</div>"+
+    "<div style='display:flex;gap:.35rem;padding:.3rem 1rem;flex-wrap:wrap;border-bottom:1px solid var(--bdr);background:var(--sur)'>"+leg+"</div>"+
+    "<div id='mapcanvas' style='overflow:hidden;position:relative;cursor:grab;user-select:none;height:calc(100vh - 240px);touch-action:none;background:#0a0c0e'>"+
+    "<div id='mapinner' style='position:absolute;top:15px;left:15px;transform-origin:top left'>"+rows.join("")+"</div>"+
+    "<div style='position:absolute;bottom:10px;left:10px;background:rgba(15,17,19,.92);border:1px solid var(--bdr);border-radius:5px;padding:5px 9px;font-size:.65rem;color:var(--mut);pointer-events:none'><div style='color:var(--gL);font-weight:700'>↑ شمال</div><div>37,000 م² • 502 نخلة</div></div>"+
+    "</div>";
+
+  var wrap=document.createElement("div");
+  wrap.id="mapwrap";
+  wrap.style.cssText="display:flex;flex-direction:column";
+  wrap.innerHTML=html;
+  document.body.insertBefore(wrap,pg);
+
+  applyTF();
+  attachMapEvents();
+}
+function applyTF(){var inner=document.getElementById("mapinner");if(inner)inner.style.transform="translate("+S.mx+"px,"+S.my+"px) scale("+S.mz+")";}
+function chgZoom(d){S.mz=Math.max(0.35,Math.min(4,S.mz+d));applyTF();}
+function resetMap(){S.mz=1;S.mx=0;S.my=0;applyTF();}
+function TF(vid){
+  S.fv=(S.fv===vid)?"all":vid;
+  var sel=document.getElementById("mvf");if(sel)sel.value=S.fv;
+  var dots=document.querySelectorAll("[data-tid]");
+  for(var i=0;i<dots.length;i++){
+    var el=dots[i];
+    var tid=el.getAttribute("data-tid");
+    var tree=null;
+    for(var k=0;k<S.trees.length;k++){if(S.trees[k].id===tid){tree=S.trees[k];break;}}
+    if(tree)el.style.opacity=(S.fv!=="all"&&tree.variety!==S.fv)?"0.08":"1";
+  }
+}
+function attachMapEvents(){
+  var canvas=document.getElementById("mapcanvas");
+  if(!canvas)return;
+  var drag=false,sx=0,sy=0,sox=0,soy=0,ld2=0;
+  canvas.addEventListener("mousedown",function(e){
+    if(e.target.getAttribute("data-tid"))return;
+    drag=true;sx=e.clientX;sy=e.clientY;sox=S.mx;soy=S.my;
+    canvas.style.cursor="grabbing";
+  });
+  document.addEventListener("mousemove",function(e){
+    if(!drag)return;
+    S.mx=sox+(e.clientX-sx);S.my=soy+(e.clientY-sy);applyTF();
+  });
+  document.addEventListener("mouseup",function(){drag=false;var cv=document.getElementById("mapcanvas");if(cv)cv.style.cursor="grab";});
+  canvas.addEventListener("click",function(e){
+    var tid=e.target.getAttribute("data-tid");if(!tid)return;
+    for(var i=0;i<S.trees.length;i++){if(S.trees[i].id===tid){S.selTree=S.trees[i];break;}}
+    if(S.selTree){S.view="tree";renderNav();render();}
+  });
+  canvas.addEventListener("wheel",function(e){
+    e.preventDefault();
+    S.mz=Math.max(0.35,Math.min(4,S.mz+(e.deltaY>0?-0.12:0.12)));applyTF();
+  },{passive:false});
+  canvas.addEventListener("touchstart",function(e){
+    if(e.touches.length===1&&!e.target.getAttribute("data-tid")){
+      drag=true;sx=e.touches[0].clientX;sy=e.touches[0].clientY;sox=S.mx;soy=S.my;
+    }else if(e.touches.length===2){
+      var dx=e.touches[0].clientX-e.touches[1].clientX;
+      var dy=e.touches[0].clientY-e.touches[1].clientY;
+      ld2=Math.sqrt(dx*dx+dy*dy);
+    }
+  },{passive:true});
+  canvas.addEventListener("touchmove",function(e){
+    if(e.touches.length===1&&drag){
+      S.mx=sox+(e.touches[0].clientX-sx);S.my=soy+(e.touches[0].clientY-sy);applyTF();e.preventDefault();
+    }else if(e.touches.length===2){
+      var dx=e.touches[0].clientX-e.touches[1].clientX;
+      var dy=e.touches[0].clientY-e.touches[1].clientY;
+      var nd=Math.sqrt(dx*dx+dy*dy);
+      if(ld2>0)S.mz=Math.max(0.35,Math.min(4,S.mz*(nd/ld2)));
+      ld2=nd;applyTF();
+    }
+  },{passive:false});
+  canvas.addEventListener("touchend",function(){drag=false;});
+}
+
+// ════════════════════════════════════════════════════════════
+// DAILY TASKS
+// ════════════════════════════════════════════════════════════
+function pgTasks(mode){
+  var isPalm=(mode==="palm");
+  var ac=isPalm?C.gL:C.gnL;
+  if(isPalm) return pgTasksPalm();
+  return pgTasksAnimal(mode);
+}
+
+// ─────────────────────────────────────────────────────
+// PALM TASKS — dynamic by month + weekly schedule
+// ─────────────────────────────────────────────────────
+function pgTasksPalm(){
+  var today=new Date();
+  var dk=today.toISOString().slice(0,10);
+  var mo=today.getMonth()+1;
+  var dayIdx=today.getDay();
+  var dayN=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+  var moN=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+
+  var ckKey="pck";
+  var ck=ld(ckKey,{});
+  var cusKey="pcus";
+  var cus=ld(cusKey,{});
+  var todayCus=(cus[dk]||[]);
+
+  // ── FIXED DAILY TASKS (every day, all year) ──
+  var FIXED=[
+    {id:"pf1",time:"06:00",s:"ص",p:"c",tx:"فحص الري وقراءة العداد",
+     det:"الاستهلاك الهدف اليوم: "+(mo>=5&&mo<=9?"90,360":"60,240")+" لتر ("+  (mo>=5&&mo<=9?"180":"120")+" لتر/شجرة) | افحص كل خط واستبدل القطارات المسدودة فوراً"},
+    {id:"pf2",time:"06:30",s:"ص",p:"c",tx:"جولة فحص بصري 10% من النخيل (~50 نخلة)",
+     det:"ابحث عن: ثقوب سوسة (تعفن بني + رائحة كريهة) | اصفرار القمة | ذبول مفاجئ | سقوط الأوراق | دوّن الرقم وأبلغ المشرف فوراً"},
+    {id:"pf3",time:"07:00",s:"ص",p:"i",tx:"فحص مصائد الفيرومون (4-7/هكتار)",
+     det:"إجمالي مصائد المزرعة: 15-26 مصيدة | سجّل عدد الحشرات | تنبيه إذا >3 حشرات/أسبوع/مصيدة"},
+    {id:"pf4",time:"17:00",s:"م",p:"i",tx:"تسجيل النخيل المشبوهة اليوم",
+     det:"أدخل رقم كل نخلة غير طبيعية في النظام | ابدأ العلاج خلال 24 ساعة من الكشف"}
+  ];
+
+  // ── MONTHLY TASKS (based on current month) ──
+  var MONTH_TASKS={
+    1:[
+      {id:"pm1_a",p:"c",tx:"بدء موسم التسميد البلدي",det:"25-50 كجم سماد بلدي متخمر (30+ يوم) حول حلقة 1م من كل جذع | إجمالي 12.5-25 طن للمزرعة | يُضاف بين نوفمبر-يناير"},
+      {id:"pm1_b",p:"i",tx:"فحص وتنظيف بنية الري الكاملة",det:"تنظيف القطارات + فلاتر المياه + ضغط الخطوط | الموسم البارد فرصة للصيانة الشاملة"},
+      {id:"pm1_c",p:"i",tx:"أخذ عينات تربة + مياه للتحليل",det:"5 عينات من مواقع مختلفة | قياس EC + pH + N + P + K + الملوحة"}
+    ],
+    2:[
+      {id:"pm2_a",p:"c",tx:"تطبيق الجرعة الأولى NPK (مرحلة التزهير)",det:"نترات أمونيوم: "+Math.round(1.0*502*0.33)+"كجم N | سوبر فوسفات: 500كجم P₂O₅ | سقية فورية بعد التطبيق"},
+      {id:"pm2_b",p:"c",tx:"رش ورقي: بورون 0.1% + زنك 0.3% + حديد 0.2%",det:"صباح باكر قبل 9ص | 500 لتر ماء + 500جم بورات الصوديوم + 1.5كجم سلفات زنك + 1كجم FeEDDHA"},
+      {id:"pm2_c",p:"c",tx:"تركيب مصائد الفيرومون الحمراء",det:"15-26 مصيدة على أطراف المزرعة | ارتفاع 1.5م | تجديد الفيرومون كل 6 أسابيع"},
+      {id:"pm2_d",p:"i",tx:"تجهيز اللقاح: جمع + تجفيف + تخزين",det:"جفف في 40°م × 24 ساعة | تخزين -18°م في أكياس مختومة | سمّه باسم الذكر والتاريخ"}
+    ],
+    3:[
+      {id:"pm3_a",p:"c",tx:"التلقيح — مراقبة يومية لظهور الإسباطات",det:"نافذة التلقيح: 48 ساعة فقط من فتح الإسباطة | أدخل 5-6 عيدان لقاح أو رذاذ 2-3جم سكر/لتر | صباحاً حصراً"},
+      {id:"pm3_b",p:"c",tx:"تسجيل تاريخ التلقيح لكل نخلة",det:"دوّن: رقم النخلة + تاريخ التلقيح + نوع اللقاح | للتنبؤ بموعد الحصاد (6-8 أشهر بعد التلقيح)"}
+    ],
+    4:[
+      {id:"pm4_a",p:"c",tx:"خف الثمار (مرحلة الكمري)",det:"احذف 25-50% من الثمار الصغيرة | الهدف: 8-12 ثمرة/عذق | يزيد وزن الثمرة الواحدة 30-40%"},
+      {id:"pm4_b",p:"c",tx:"الجرعة الثانية K: كبريتات بوتاسيوم SOP",det:"1.5 كجم K₂O/شجرة × 502 = 753 كجم SOP | يُطبق حول الجذع + ري فوري | يحسن حلاوة الثمرة وحجمها"},
+      {id:"pm4_c",p:"i",tx:"رش مغنيسيوم 0.3% + زنك 0.3%",det:"صباح باكر | يعالج الاصفرار بين الأوردة (نقص Mg) ويحسن النمو"}
+    ],
+    5:[
+      {id:"pm5_a",p:"c",tx:"🔴 نيتروجين عاجل — نترات أمونيوم الآن",det:"500-700 جم/شجرة × 502 = إجمالي 251-351 كجم | يُطبق حول الجذع + سقية فورية وكاملة | ضروري جداً في مايو"},
+      {id:"pm5_b",p:"c",tx:"الجرعة الثانية GranuPotasse 1كجم/شجرة",det:"502 كجم SOP + إيميداكلوبريد 10 مل/شجرة (حقن جذع) | يرفع السكريات ويحمي من السوسة"},
+      {id:"pm5_c",p:"i",tx:"رش ورقي رباعي: زنك + حديد + بورون + مغنيسيوم",det:"صباح قبل 9ص | زنك 0.3% + FeEDDHA 0.2% + بورات 0.1% + كبريتات Mg 0.3% | في 500 لتر ماء"},
+      {id:"pm5_d",p:"c",tx:"مراقبة يومية الخامج على الإسباطات",det:"ابحث عن بقع بنية على الإسباطات | أزل المصاب وأحرقه فوراً | لا علاج بعد فوات الأوان"},
+      {id:"pm5_e",p:"i",tx:"زيادة الري لـ 180 لتر/شجرة/يوم",det:"90,360 لتر/يوم للمزرعة كاملة | الحرارة ترتفع — النخلة في طور نمو حرج"}
+    ],
+    6:[
+      {id:"pm6_a",p:"c",tx:"تركيب دعامات العذوق الثقيلة",det:"العذوق >15 كجم: اربط بحبل ناعم من العذق للجذع | تجنب الخيش الخشن الذي يؤذي الثمار"},
+      {id:"pm6_b",p:"i",tx:"تغليف العذوق بأكياس غير منسوجة 50×80 سم",det:"يحمي من: الحشرات + الغبار + الرطوبة الزائدة | تبقى من الخلال حتى الحصاد"},
+      {id:"pm6_c",p:"c",tx:"الجرعة الثالثة NPK + مبيد وقائي",det:"200 كجم N + 450 كجم K₂O | إيميداكلوبريد 10-20 مل/شجرة حقن جذع | كبريتات زنك 200 جم/شجرة"}
+    ],
+    7:[
+      {id:"pm7_a",p:"i",tx:"فحص الأكياس والدعامات أسبوعياً",det:"تحقق من سلامة الربط | استبدل الممزق | أضف دعامات للعذوق التي كبرت"},
+      {id:"pm7_b",p:"i",tx:"رش مكافحة حمض الديكلورفوس",det:"مقارنة بيانات المصائد — إذا >5 حشرات/أسبوع/مصيدة: رش كلوربيريفوس 1000 مل/1000 لتر ماء"}
+    ],
+    8:[
+      {id:"pm8_a",p:"c",tx:"تجهيز منطقة الفرز والتخزين البارد",det:"تنظيف ثلاجات التخزين | اطلب مستلزمات التعبئة: أكياس + صناديق + ملصقات | تحقق ثلاجات: هدف -18°م"},
+      {id:"pm8_b",p:"i",tx:"تحديد مواعيد الحصاد بحسب تاريخ التلقيح",det:"روثانة تُحصد أولاً (رطب) | صفاوي وعجوة (تمر) | التلوين الكامل = جاهز"}
+    ],
+    9:[
+      {id:"pm9_a",p:"c",tx:"حصاد الروثانة (رطب) ثم الصفاوي ثم العجوة",det:"حصاد يدوي صباحاً 5-8 ص | تبريد فوري عند 0°م خلال ساعتين | درجة أولى → -18°م فوراً"},
+      {id:"pm9_b",p:"c",tx:"توثيق الحصاد: وزن + درجة + سعر لكل صنف",det:"سجّل في النظام: وزن إجمالي + درجة الجودة + قناة البيع (مزاد/مباشر) + السعر المحقق"},
+      {id:"pm9_c",p:"i",tx:"تقييم الجودة: مقارنة بمعيار درجة أولى",det:"عجوة هدف: ≥85 كجم/شجرة | صفاوي: ≥90 كجم | عنبرة: ≥100 كجم | دون الهدف = راجع التسميد والري"}
+    ],
+    10:[
+      {id:"pm10_a",p:"c",tx:"الجرعة الرابعة NPK للاستعادة بعد الحصاد",det:"200 كجم N + 500 كجم P₂O₅ | تساعد النخلة على استعادة مخزون الطاقة للموسم القادم"},
+      {id:"pm10_b",p:"c",tx:"تقليم رئيسي — تعقيم الأدوات",det:"أزل السعف الميت والمتدلي | كلور 10% بين كل نخلة وأخرى | الهدف: 10-12 سعفة خضراء"},
+      {id:"pm10_c",p:"i",tx:"رش وقائي بعد الحصاد: خليط بوردو",det:"كبريتات نحاس 1% + جير 1% | يحمي من الفطريات موسم الشتاء"}
+    ],
+    11:[
+      {id:"pm11_a",p:"i",tx:"تحليل التربة والمياه لموسم قادم",det:"5 عينات مختلفة | EC + pH + N + P + K + الملوحة | النتائج تحدد جدول التسميد"},
+      {id:"pm11_b",p:"i",tx:"طلب مستلزمات الموسم القادم",det:"نترات أمونيوم + SOP + سوبر فوسفات + بورات + زنك + FeEDDHA + مبيدات"}
+    ],
+    12:[
+      {id:"pm12_a",p:"i",tx:"صيانة شاملة لبنية الري",det:"تنظيف القطارات + فلاتر + بدال الخطوط التالفة | الموسم البارد مناسب"},
+      {id:"pm12_b",p:"i",tx:"بدء التسميد البلدي (سماد بلدي متخمر)",det:"25-50 كجم/شجرة في حلقة 1م | استخدم سماد القطيع المتخمر 30+ يوم"}
+    ]
+  };
+
+  // ── WEEKLY ROTATION ──
+  var WEEK=[
+    [{id:"pw0",tx:"فحص 126 نخلة (25%) للسوسة",det:"دوّن كل نخلة مشبوهة | فحص منهجي صف بصف",p:"c"}],
+    [{id:"pw1",tx:"تنظيف مناطق حول الجذوع",det:"أزل الأعشاب والمخلفات حول 1م من كل جذع",p:"i"}],
+    [{id:"pw2",tx:"فحص ضغط الري وتسجيل استهلاك الأسبوع",det:"قارن بالهدف: "+(mo>=5&&mo<=9?"632,520":"421,680")+" لتر/أسبوع",p:"i"}],
+    [{id:"pw3",tx:"فحص مصائد الفيرومون وتسجيل الأعداد",det:"إذا >3 حشرات/مصيدة: علاج حقن فوري لأقرب 3 نخلات",p:"c"}],
+    [{id:"pw4",tx:"رفع تقرير الحالة الأسبوعي للمشرف",det:"عدد النخيل المشبوهة + استهلاك الماء + حالة المصائد + ملاحظات",p:"i"}],
+    [{id:"pw5",tx:"فحص عمال الري والتسميد",det:"تأكد من تطبيق المواد بالكميات الصحيحة + حفظ سجلات التطبيق",p:"c"}],
+    [{id:"pw6",tx:"يوم الراحة — مراجعة سجلات الأسبوع",det:"مراجعة بيانات النظام + تحديث حالة أي نخلة تغير وضعها",p:"i"}]
+  ];
+
+  var ckKey2="pck";
+  // Count totals
+  var monthTasks=MONTH_TASKS[mo]||[];
+  var weekTasks=WEEK[dayIdx]||[];
+  var allTasks=FIXED.concat(monthTasks).concat(weekTasks).concat(todayCus);
+  var total=allTasks.length;
+  var done=0;
+  for(var i=0;i<allTasks.length;i++) if(ck[dk+"-"+allTasks[i].id]) done++;
+  var pct=total>0?Math.round(done/total*100):0;
+
+  var h="<div>";
+  // Header
+  h+="<div class='card' style='padding:.9rem;margin-bottom:.8rem;border-right:3px solid "+C.gL+"'>";
+  h+="<div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem'>";
+  h+="<div><div style='font-family:Amiri,serif;color:"+C.gL+";font-size:1.1rem;font-weight:700'>🌴 مهام النخيل اليومية</div>";
+  h+="<div style='color:var(--mut);font-size:.8rem;margin-top:.1rem'>"+dayN[dayIdx]+" — "+today.getDate()+" "+moN[mo-1]+" "+today.getFullYear()+"</div></div>";
+  h+="<div style='text-align:left'><div style='font-family:Amiri,serif;font-size:1.4rem;font-weight:700;color:"+(pct===100?C.gnL:pct>=60?C.org:C.rL)+"'>"+pct+"%</div>";
+  h+="<div style='color:var(--mut);font-size:.7rem'>"+done+"/"+total+"</div></div></div>";
+  h+="<div style='background:var(--sur);border-radius:4px;height:9px;overflow:hidden;margin-top:.6rem'>";
+  h+="<div class='bar' style='width:"+pct+"%;background:linear-gradient(90deg,"+C.grn+","+C.gL+")'></div></div>";
+  if(pct===100) h+="<div style='color:"+C.gnL+";font-size:.8rem;margin-top:.4rem;text-align:center'>✅ أُنجزت جميع مهام اليوم!</div>";
+  h+="</div>";
+
+  h+="<div style='display:flex;gap:.35rem;margin-bottom:.8rem;flex-wrap:wrap'>";
+  h+="<button class='gb' onclick=\"showAddTask('palm')\">+ مهمة جديدة</button>";
+  h+="</div>";
+
+  // ── SECTION: صباح ──
+  var morn=FIXED.filter(function(t){return t.s==="ص";});
+  h+=renderPalmGroup("🌅 الصباح",C.gL,morn,ck,dk,ckKey2);
+
+  // ── SECTION: شهري ──
+  if(monthTasks.length){
+    h+=renderPalmGroup("🌱 مهام "+moN[mo-1]+" — الآن",C.org,monthTasks,ck,dk,ckKey2);
+  }
+
+  // ── SECTION: أسبوعي ──
+  if(weekTasks.length){
+    h+=renderPalmGroup("📅 أسبوعي — "+dayN[dayIdx],C.tel,weekTasks,ck,dk,ckKey2);
+  }
+
+  // ── SECTION: مساء ──
+  var even=FIXED.filter(function(t){return t.s==="م";});
+  h+=renderPalmGroup("🌆 المساء",C.bL,even,ck,dk,ckKey2);
+
+  // ── Custom ──
+  if(todayCus.length) h+=renderPalmGroup("➕ مضاف اليوم",C.pur,todayCus,ck,dk,ckKey2);
+
+  // ── PALM SEASON CALENDAR ──
+  h+="<div class='card' style='padding:.9rem;margin-top:.7rem;border-right:3px solid "+C.gold+"'>";
+  h+="<div style='font-family:Amiri,serif;color:"+C.gold+";font-weight:700;font-size:.95rem;margin-bottom:.6rem'>📆 التقويم الزراعي — الشهر الحالي: "+moN[mo-1]+"</div>";
+  var calendar=[
+    {m:[1,2],label:"ديسمبر-فبراير",phase:"استعداد وتزهير",col:C.bL,tasks:["سماد بلدي 25-50كجم/شجرة","NPK الجرعة الأولى","رش بورون + زنك + حديد","تركيب مصائد الفيرومون","تجهيز + تخزين اللقاح"]},
+    {m:[3],label:"مارس",phase:"التلقيح",col:C.prL,tasks:["تلقيح الإسباطات خلال 48 ساعة","5-6 عيدان لقاح صباحاً"]},
+    {m:[4,5],label:"أبريل-مايو",phase:"نمو الثمار",col:C.org,tasks:["خف الثمار (8-12 ثمرة/عذق)","نيتروجين عاجل 500-700جم/شجرة","K₂O 1.5كجم/شجرة","رش ورقي رباعي","مراقبة الخامج يومياً"]},
+    {m:[6,7,8],label:"يونيو-أغسطس",phase:"نضج وجودة",col:C.gold,tasks:["دعامات + تغليف العذوق","NPK الجرعة الثالثة","مراقبة السوسة يومياً","ري 180 لتر/شجرة/يوم"]},
+    {m:[9],label:"سبتمبر",phase:"الحصاد",col:C.gnL,tasks:["حصاد روثانة أولاً","ثم صفاوي","ثم عجوة","تبريد فوري -18°م","توثيق الوزن والجودة"]},
+    {m:[10,11,12],label:"أكتوبر-ديسمبر",phase:"استعادة",col:C.mut,tasks:["NPK الجرعة الرابعة","تقليم رئيسي","صيانة الري","تحاليل تربة"]}
+  ];
+  for(var i=0;i<calendar.length;i++){
+    var cal=calendar[i];
+    var isCurrent=false;
+    for(var j=0;j<cal.m.length;j++) if(cal.m[j]===mo) isCurrent=true;
+    var bg=isCurrent?cal.col+"22":"transparent";
+    var brd=isCurrent?"2px solid "+cal.col:"1px solid var(--bdr)";
+    h+="<div style='border:"+brd+";border-radius:5px;padding:.55rem .7rem;margin-bottom:.4rem;background:"+bg+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:"+(isCurrent?".35rem":"0")+"'>";
+    h+="<span style='font-weight:700;font-size:.82rem;color:"+(isCurrent?cal.col:"var(--mut)")+"'>"+cal.label+"</span>";
+    h+="<span style='font-size:.68rem;color:"+cal.col+";background:"+cal.col+"22;padding:1px 7px;border-radius:8px;font-weight:700'>"+cal.phase+(isCurrent?" — الآن":"")+"</span>";
+    h+="</div>";
+    if(isCurrent){
+      for(var k=0;k<cal.tasks.length;k++){
+        h+="<div style='font-size:.78rem;color:var(--txt);padding:.12rem 0'>• "+cal.tasks[k]+"</div>";
+      }
+    }
+    h+="</div>";
+  }
+  h+="</div>";
+
+  // Daily notes
+  var noteVal=ld("note_palm_"+dk,"")||"";
+  h+="<div class='card' style='padding:.85rem;margin-top:.7rem'>";
+  h+="<div style='color:"+C.gL+";font-weight:700;font-size:.85rem;margin-bottom:.4rem'>📝 ملاحظات اليوم</div>";
+  h+="<textarea class='inp' rows='3' style='resize:vertical' placeholder='سجل أي ملاحظة...' onchange=\"svNote('palm','"+dk+"',this.value)\">"+noteVal+"</textarea>";
+  h+="</div>";
+  h+="</div>";
+  return h;
+}
+
+function renderPalmGroup(title,col,tasks,ck,dk,ckKey){
+  if(!tasks.length) return "";
+  var done=0;
+  for(var i=0;i<tasks.length;i++) if(ck[dk+"-"+tasks[i].id]) done++;
+  var h="<div class='card' style='padding:.85rem;margin-bottom:.7rem;border-right:3px solid "+col+"'>";
+  h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem'>";
+  h+="<span style='font-weight:700;color:"+col+";font-size:.88rem'>"+title+"</span>";
+  h+="<span style='color:"+(done===tasks.length?C.gnL:"var(--mut)")+";font-size:.73rem'>"+done+"/"+tasks.length+"</span></div>";
+  for(var i=0;i<tasks.length;i++){
+    var t=tasks[i];
+    var isDone=!!ck[dk+"-"+t.id];
+    var pc=priColor(t.p);
+    var isCus=!!t.custom;
+    h+="<div onclick=\"TK('"+dk+"','"+t.id+"','"+ckKey+"')\" class='taskrow'>";
+    h+="<div class='chk"+(isDone?" done":"")+"'></div>";
+    h+="<div style='flex:1'>";
+    h+="<div style='font-size:.85rem;color:"+(isDone?"var(--mut)":"var(--txt)")+";text-decoration:"+(isDone?"line-through":"none")+";line-height:1.4'>"+t.tx+"</div>";
+    if(t.det) h+="<div style='font-size:.72rem;color:var(--dim);margin-top:.2rem;line-height:1.55'>"+t.det+"</div>";
+    if(t.time) h+="<div style='font-size:.68rem;color:var(--mut);margin-top:.15rem'>⏰ "+t.time+"</div>";
+    h+="</div>";
+    h+="<div style='display:flex;align-items:flex-start;gap:.3rem;flex-shrink:0;padding-top:.25rem'>";
+    h+="<div style='width:6px;height:6px;border-radius:50%;background:"+pc+"'></div>";
+    if(isCus) h+="<button class='db' onclick=\"event.stopPropagation();DelCT('palm','"+dk+"','"+t.id+"')\">×</button>";
+    h+="</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+
+// ─────────────────────────────────────────────────────
+// ANIMAL TASKS — SMART: reads actual herd from S.animals
+// ─────────────────────────────────────────────────────
+function pgTasksAnimal(mode){
+  var today=new Date();
+  var dk=today.toISOString().slice(0,10);
+  var mo=today.getMonth()+1;
+  var dayIdx=today.getDay();
+  var dayN=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+  var moN=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+  var isGoat=(mode==="goat");
+  var ac=isGoat?C.gnL:C.prL;
+  var isSummer=(mo>=5&&mo<=9);
+  var ckKey="ack";
+  var ck=ld(ckKey,{});
+  var cus=ld("acus",{});
+  var todayCus=(cus[dk]||[]);
+
+  // ── BUILD SMART GROUPS from S.animals ──
+  var myA=[];
+  for(var i=0;i<S.animals.length;i++){
+    var b=BM[S.animals[i].br];
+    if(b&&((isGoat&&b.t==="goat")||(!isGoat&&b.t==="sheep"))) myA.push(S.animals[i]);
+  }
+
+  var g={dry:[],preg:[],lact:[],stud:[],baby:[],teen:[]};
+  for(var i=0;i<myA.length;i++){
+    var a=myA[i];
+    var m=ageMo(a.dob)||0;
+    if(a.sex==="male"&&a.cond!=="growing") g.stud.push(a);
+    else if(a.cond==="pregnant") g.preg.push(a);
+    else if(a.cond==="lactating") g.lact.push(a);
+    else if(m<3) g.baby.push(a);
+    else if(a.cond==="growing"||m<12) g.teen.push(a);
+    else g.dry.push(a);
+  }
+
+  // ── RATION CALC ──
+  var wfBr={ardi:40,masri:35,boer:75,naimi:45,najdi:50,harri:42,sawakni:38,dorper:65};
+  var wmBr={ardi:51,masri:48,boer:120,naimi:65,najdi:75,harri:60,sawakni:55,dorper:100};
+
+  function getBW(a){
+    var b=BM[a.br];
+    var m=ageMo(a.dob)||12;
+    var fw=b?(isGoat?b.wf:b.wf):40;
+    var mw=b?(isGoat?b.wm:b.wm):50;
+    if(a.cond==="growing"||a.sex==="kid"){
+      if(m<1) return fw*0.1;
+      if(m<3) return fw*0.2;
+      if(m<6) return fw*0.4;
+      return fw*0.65;
+    }
+    if(a.sex==="male") return mw;
+    return fw;
+  }
+
+  // DM rates (kg DM per kg BW)
+  var dmRate={dry:0.022,preg:0.035,lact:0.045,stud:0.025,baby:0.06,teen:0.048};
+  // Summer adjustment +10% water, -5% dry feed (heat)
+  var summerFactor=isSummer?0.95:1.0;
+
+  function calcGroup(arr,key){
+    if(!arr.length) return null;
+    var totalBW=0;
+    for(var i=0;i<arr.length;i++) totalBW+=getBW(arr[i]);
+    var avgBW=totalBW/arr.length;
+    var dmPer=Math.round(avgBW*dmRate[key]*summerFactor*100)/100;
+    var dmTotal=Math.round(dmPer*arr.length*10)/10;
+    var waterPer=Math.round(avgBW*(key==="lact"?0.18:key==="baby"?0.15:isSummer?0.14:0.10));
+    var waterTotal=waterPer*arr.length;
+    var ids=arr.map(function(a){return a.id;}).join("، ");
+    return{n:arr.length,avgBW:Math.round(avgBW),dmPer:dmPer,dmTotal:dmTotal,waterPer:waterPer,waterTotal:waterTotal,ids:ids,key:key};
+  }
+
+  var R={
+    dry:  calcGroup(g.dry,  "dry"),
+    preg: calcGroup(g.preg, "preg"),
+    lact: calcGroup(g.lact, "lact"),
+    stud: calcGroup(g.stud, "stud"),
+    baby: calcGroup(g.baby, "baby"),
+    teen: calcGroup(g.teen, "teen")
+  };
+
+  // Ration composition (% of DM)
+  var comp=[
+    {f:"برسيم حجازي طازج",pct:45},
+    {f:"شعير مجروش",pct:22},
+    {f:"ردة القمح",pct:12},
+    {f:"كسب صويا",pct:9},
+    {f:"نوى التمر مطحون",pct:5},
+    {f:"دبس السكر",pct:2},
+    {f:"معادن ومواد حاملة",pct:3},
+    {f:"ملح طعام + كلوريد أمونيوم",pct:2}
+  ];
+
+  function buildRationText(r){
+    if(!r) return "";
+    var parts=[];
+    for(var i=0;i<comp.length;i++){
+      var kg=Math.round(r.dmTotal*comp[i].pct/100*100)/100;
+      if(kg>0) parts.push(comp[i].f+": "+kg+"كجم");
+    }
+    return parts.join(" | ");
+  }
+
+  // Vitamins/minerals detail
+  var vitDetails="فيتامين A 5000 وحدة + D3 2000 وحدة + E 20مجم + B12 50مكجم + كالسيوم 10جم + فوسفور 4جم + سيلينيوم 0.1مجم — يُضاف لكل 10كجم علف مركز";
+  var saltDetail="ملح بحري خشن: 8-10 جم/رأس/يوم للجافة | 15 جم للمرضعة | أحجار الليكس متاحة دائماً في كل قلم";
+
+  // ── URGENT ALERTS (from live herd) ──
+  var urgent=getUrgent();
+
+  // ── FIXED DAILY TASKS (time-based) ──
+  var FIXED=[
+    {id:"af1",time:"05:00",s:"ص",p:"c",tx:"وجبة الصباح — 60% من الكمية اليومية",
+     det:buildMorningFeedDetail(R,comp)},
+    {id:"af2",time:"05:30",s:"ص",p:"c",tx:"فحص المشارب وملء المياه",
+     det:buildWaterDetail(R,isSummer)},
+    {id:"af3",time:"06:00",s:"ص",p:"c",tx:"جولة صحية — فحص كل رأس بالاسم",
+     det:buildHealthCheck(g)},
+    {id:"af4",time:"06:30",s:"ص",p:"c",tx:"عزل الحيوانات المريضة فوراً",
+     det:"غرفة العزل منفصلة تماماً | المريض يُعزل نفس اليوم | تعقيم القلم بكلور 5% | واردون جدد: 21 يوم عزل"},
+    {id:"af5",time:"06:45",s:"ص",p:"c",tx:"عد الرؤوس — تحقق من اكتمال "+myA.length+" رأس",
+     det:buildHeadcount(g)},
+    {id:"af6",time:"07:00",s:"ص",p:"i",tx:"تنظيف الأقلام وجمع الروث",
+     det:"ركّم الروث في منطقة السماد | بعد 30 يوم تخمر: 2-3 كجم/م² تحت النخيل | قلم الصغار يُنظف مرتين يومياً"},
+    {id:"af7",time:"12:00",s:"ص",p:"i",tx:"وجبة الظهر — للحوامل والمرضعات فقط",
+     det:buildMiddayDetail(R)},
+    {id:"af8",time:"17:00",s:"م",p:"c",tx:"وجبة المساء — 40% من الكمية اليومية",
+     det:buildEveningFeedDetail(R,comp)},
+    {id:"af9",time:"18:00",s:"م",p:"c",tx:"جولة صحية مسائية — تركيز على الحوامل والصغار",
+     det:buildEveningHealth(g,mo)},
+    {id:"af10",time:"18:30",s:"م",p:"c",tx:"تسجيل المواليد + الوزن + الأحداث اليومية",
+     det:"المولود: لبأ 10% من وزنه خلال ساعة | يود 7% للسرة | وزن + رقم + تسجيل الأم | إبلاغ المشرف"},
+    {id:"af11",time:"19:00",s:"م",p:"c",tx:"إغلاق وتأمين الأقلام",
+     det:"بوابة FM01 | الصغار | الإناث | البوابة الرئيسية | إضاءة ليلية"}
+  ];
+
+  // ── WEEKLY ──
+  var WEEK=[
+    [{id:"aw0a",tx:"وزن عينة (10% = "+Math.max(2,Math.round(myA.length*0.1))+" رؤوس)",det:"قارن ADG بالهدف: بور 250جم/يوم | عردي 149جم/يوم | نعيمي 175جم/يوم | نجدي 165جم/يوم | سجّل في ملف كل حيوان",p:"c"}],
+    [{id:"aw1a",tx:"تنظيف المشارب بكلور 0.5%",det:"1 لتر كلور + 200 لتر ماء | افرك ثم اشطف 3 مرات | فحص البزابيز والصمامات",p:"c"}],
+    [{id:"aw2a",tx:"فحص أرضية الأقلام والرطوبة",det:"أرضية رطبة = بؤرة أمراض | أضف رمل جاف أو نشارة خشب | الهدف: جافة ونظيفة",p:"i"}],
+    [{id:"aw3a",tx:"فحص FAMACHA — لون اللثة لكل القطيع",det:"درجة 1-2: لون أحمر/وردي = طبيعي | درجة 3: وردي شاحب = مراقبة | 4-5: أبيض = ألبيندازول 10مجم/كجم وزن فموياً الآن",p:"c"}],
+    [{id:"aw4a",tx:"تقرير أسبوعي: أوزان + صحة + استهلاك",det:"الأوزان + ADG + حالة كل مجموعة + استهلاك العلف والماء + أي أمراض",p:"i"}],
+    [{id:"aw5a",tx:"فحص BCS (حالة الجسم 1-5) لكل القطيع",det:"هدف 2.5-3.5/5 | أقل من 2: زد العلف 20% | أكثر من 4: قلل المركز 20% | الحوامل: هدف 3-3.5",p:"i"},
+     {id:"aw5b",tx:"فحص ثلاجة اللقاحات — هدف 2-8°م",det:"سجّل درجة الحرارة في الدفتر | لقاح تالف = قطيع بلا حماية | تحقق صلاحية كل عبوة",p:"c"}],
+    [{id:"aw6a",tx:"صيانة الحظيرة والمعدات",det:"فحص الأسقف والشبك | صيانة المعالف والمشارب | رش البيئة بكلور 5% أسبوعياً",p:"i"}]
+  ];
+
+  // ── MONTHLY ──
+  var MONTH={
+    1: [{id:"am1a",tx:"بدء موسم التلقيح للإناث الجافة",det:"FM01 مع GM01/02 + GA01 + GH01/02 | 1 ذكر لكل 5-10 إناث | سجّل تاريخ التلقيح = موعد الولادة بعد 5 أشهر",p:"c"}],
+    2: [{id:"am2a",tx:"CDT تعزيز للحوامل 4-6 أسابيع قبل الولادة",det:"2مل تحت الجلد | تحمي المولود من التسمم المعوي | الجرعة الثانية 3-4 أسابيع بعدها",p:"c"},
+        {id:"am2b",tx:"تجهيز حجرات الولادة",det:"3 حجرات منفصلة + تعقيم + فراش نظيف | لبأ مجمد للطوارئ | جهاز قياس حرارة",p:"c"}],
+    3: [{id:"am3a",tx:"موسم الولادة — إشراف 24 ساعة",det:"المولود: لبأ خلال ساعة (10% من وزنه) + يود 7% للسرة + وزن + رقم | الأم: ماء دافئ + حلبة",p:"c"}],
+    4: [{id:"am4a",tx:"تطعيم FMD الجرعة الأولى — إلزامي",det:"جميع الحيوانات ≥4 أشهر | IM حسب التعليمات | سجّل في بطاقة كل حيوان",p:"c"},
+        {id:"am4b",tx:"CDT جرعة أولى للمواليد 6-8 أسابيع",det:"2مل تحت الجلد | كرر بعد 3-4 أسابيع | ثم سنوياً",p:"c"}],
+    5: [{id:"am5a",tx:"🔴 PPR الآن عاجل — JF01-JF05 + TY01-TY03 (3 أشهر)",det:"1مل IM مرة واحدة مدى الحياة | لا تأخير | تحقق من مخزون اللقاح",p:"c"},
+        {id:"am5b",tx:"تجهيز التهوية الصيفية",det:"تشغيل المراوح + ضباب التبريد | هدف <30°م داخل الحظيرة | الصيف يبدأ — الفاتورة تُدفع الآن",p:"c"},
+        {id:"am5c",tx:"زيادة الماء الصيفي تدريجياً",det:"ابدأ الزيادة: 12 لتر → 14 لتر/رأس الأسبوع القادم | الحوامل والمرضعات: +50% ماء",p:"i"}],
+    6: [{id:"am6a",tx:"إدارة الصيف الكاملة",det:"تغذية 5ص + بعد المغرب فقط في الصيف | ماء 15-18 لتر/رأس | منع الوقوف في الشمس 11ص-4م",p:"c"}],
+    7: [{id:"am7a",tx:"توزيع نوى التمر بعد حصاد النخيل",det:"حتى 20% من المركز | اطحنه جيداً | يوفر 15-25% من تكلفة العلف | سعرات حرارية عالية",p:"i"}],
+    9: [{id:"am9a",tx:"موسم عيد الأضحى — تقييم وتسعير",det:"بور 6 أشهر عند 40كجم → 1,800-2,400 ريال | الطلب أعلى 3-4 أسابيع قبل العيد | جهز شهادة الصحة",p:"c"}],
+    10:[{id:"am10a",tx:"FMD الجرعة الثانية (بعد 6 أشهر من الأولى)",det:"جميع ≥4 أشهر | سجّل في بطاقة التطعيم",p:"c"},
+        {id:"am10b",tx:"تجديد القطيع: تقييم الإناث",det:"الإناث اللواتي لم ينتجن 2 مواسم: فكر في البيع | اشترِ إناث بديلة + حلل بروسيلا قبل الشراء",p:"i"}],
+    11:[{id:"am11a",tx:"موسم التلقيح — FM01 مع الإناث الجافة",det:"FM01 مع GM01/02 + GA01 + GH01/02 | موسم الشتاء = أنسب موعد للتلقيح في المدينة",p:"c"}],
+    12:[{id:"am12a",tx:"وزن شامل لكل القطيع + BCS + تحليل مالي",det:"وزن كل رأس + BCS + تكلفة وإيراد لكل حيوان + قرارات الاحتفاظ والبيع",p:"i"}]
+  };
+
+  var monthTasks=MONTH[mo]||[];
+  var weekTasks=WEEK[dayIdx]||[];
+  var allTasks=urgent.concat(FIXED).concat(monthTasks).concat(weekTasks).concat(todayCus);
+  var total=allTasks.length;
+  var done=0;
+  for(var i=0;i<allTasks.length;i++) if(ck[dk+"-"+allTasks[i].id]) done++;
+  var pct=total>0?Math.round(done/total*100):0;
+
+  var h="<div>";
+  h+="<div class='card' style='padding:.9rem;margin-bottom:.8rem;border-right:3px solid "+ac+"'>";
+  h+="<div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem'>";
+  h+="<div><div style='font-family:Amiri,serif;color:"+ac+";font-size:1.1rem;font-weight:700'>🐐🐑 مهام القطيع — "+today.getDate()+" "+moN[mo-1]+"</div>";
+  h+="<div style='color:var(--mut);font-size:.8rem;margin-top:.1rem'>"+dayN[dayIdx]+" — "+myA.length+" رأس | "+(isSummer?"🌡️ إجراءات صيفية":"❄️ موسم شتاء/ربيع")+"</div></div>";
+  h+="<div style='text-align:left'><div style='font-family:Amiri,serif;font-size:1.4rem;font-weight:700;color:"+(pct===100?C.gnL:pct>=60?C.org:C.rL)+"'>"+pct+"%</div>";
+  h+="<div style='color:var(--mut);font-size:.7rem'>"+done+"/"+total+"</div></div></div>";
+  h+="<div style='background:var(--sur);border-radius:4px;height:9px;overflow:hidden;margin-top:.6rem'>";
+  h+="<div class='bar' style='width:"+pct+"%;background:linear-gradient(90deg,"+C.grn+","+ac+")'></div></div>";
+  if(pct===100) h+="<div style='color:"+C.gnL+";font-size:.8rem;margin-top:.4rem;text-align:center'>✅ أُنجزت جميع مهام اليوم!</div>";
+  h+="</div>";
+
+  h+="<div style='display:flex;gap:.35rem;margin-bottom:.8rem;flex-wrap:wrap'>";
+  h+="<button class='gb' onclick=\"showAddTask('"+mode+"')\">+ مهمة جديدة</button>";
+  h+="</div>";
+
+  if(urgent.length) h+=renderAnimalGroup("🚨 عاجل — تطعيمات واجبة الآن",C.rL,urgent,ck,dk,ckKey);
+
+  // Morning feed section
+  var morn=FIXED.filter(function(t){return t.s==="ص"&&t.time<"12:00";});
+  h+=renderAnimalGroup("🌅 الصباح (5:00 — 7:00)",ac,morn,ck,dk,ckKey);
+
+  // Midday
+  var midd=FIXED.filter(function(t){return t.s==="ص"&&t.time>="12:00";});
+  if(midd.length) h+=renderAnimalGroup("☀️ الظهر (12:00)",C.org,midd,ck,dk,ckKey);
+
+  // Evening
+  var even=FIXED.filter(function(t){return t.s==="م";});
+  h+=renderAnimalGroup("🌆 المساء (5:00 — 7:00)",C.bL,even,ck,dk,ckKey);
+
+  if(monthTasks.length) h+=renderAnimalGroup("🌱 مهام "+moN[mo-1],C.org,monthTasks,ck,dk,ckKey);
+  if(weekTasks.length) h+=renderAnimalGroup("📅 أسبوعي — "+dayN[dayIdx],C.tel,weekTasks,ck,dk,ckKey);
+  if(todayCus.length) h+=renderAnimalGroup("➕ مضاف اليوم",C.pur,todayCus,ck,dk,ckKey);
+
+  // ── RATION SUMMARY CARD ──
+  h+="<div class='card' style='padding:.9rem;margin-top:.7rem;border-right:3px solid "+ac+"'>";
+  h+="<div style='font-family:Amiri,serif;color:"+ac+";font-weight:700;font-size:.95rem;margin-bottom:.65rem'>🌿 ملخص العليقة اليومية — "+today.getDate()+" "+moN[mo-1]+"</div>";
+
+  var totalDM=0,totalWater=0;
+  for(var gk in R){if(R[gk]){totalDM+=R[gk].dmTotal;totalWater+=R[gk].waterTotal;}}
+  h+="<div class='g3' style='margin-bottom:.7rem'>";
+  h+="<div class='stat'><div class='statv'>"+Math.round(totalDM*10)/10+" كجم</div><div class='statl'>مادة جافة/يوم</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.bL+"'>"+totalWater+" لتر</div><div class='statl'>ماء/يوم</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.org+"'>"+Math.round(totalDM*3*10)/10+" كجم</div><div class='statl'>علف طازج تقريبي</div></div></div>";
+
+  var groupNames={dry:"الإناث الجافة",preg:"الحوامل",lact:"المرضعات",stud:"الأفحل",baby:"صغار <3 أشهر",teen:"نامي 3-12 شهر"};
+  var groupColors={dry:C.mut,preg:C.prL,lact:C.gnL,stud:C.gold,baby:C.bL,teen:C.org};
+  for(var gk in R){
+    var r=R[gk];
+    if(!r)continue;
+    h+="<div style='border:1px solid var(--bdr);border-radius:5px;padding:.65rem;margin-bottom:.55rem'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem'>";
+    h+="<span style='font-weight:700;color:"+groupColors[gk]+";font-size:.85rem'>"+groupNames[gk]+" ("+r.n+" رأس)</span>";
+    h+="<span style='color:"+C.gL+";font-size:.8rem;font-weight:700'>"+r.dmTotal+" كجم/يوم</span></div>";
+    h+="<div style='font-size:.72rem;color:var(--dim);margin-bottom:.3rem;line-height:1.5'>"+buildRationText(r)+"</div>";
+    h+="<div style='display:flex;gap:.5rem;flex-wrap:wrap'>";
+    h+="<div style='font-size:.72rem;background:var(--sur);border-radius:4px;padding:.2rem .5rem;color:"+C.bL+"'>💧 ماء: "+r.waterTotal+" لتر/يوم</div>";
+    h+="<div style='font-size:.72rem;background:var(--sur);border-radius:4px;padding:.2rem .5rem;color:"+C.mut+"'>صباح: "+Math.round(r.dmTotal*0.6*10)/10+"كجم | مساء: "+Math.round(r.dmTotal*0.4*10)/10+"كجم</div>";
+    h+="</div></div>";
+  }
+
+  // Vitamins & Minerals card
+  h+="<div style='background:"+C.gold+"11;border:1px solid "+C.gold+"44;border-radius:5px;padding:.65rem;margin-top:.5rem'>";
+  h+="<div style='color:"+C.gold+";font-weight:700;font-size:.78rem;margin-bottom:.3rem'>💊 الفيتامينات والمعادن اليومية</div>";
+  h+="<div style='font-size:.73rem;color:var(--txt);line-height:1.7'>"+vitDetails+"</div>";
+  h+="</div>";
+  h+="<div style='background:"+C.bL+"11;border:1px solid "+C.bL+"44;border-radius:5px;padding:.65rem;margin-top:.45rem'>";
+  h+="<div style='color:"+C.bL+";font-weight:700;font-size:.78rem;margin-bottom:.3rem'>🧂 الملح والمعادن</div>";
+  h+="<div style='font-size:.73rem;color:var(--txt);line-height:1.7'>"+saltDetail+"</div>";
+  h+="</div>";
+  if(isSummer){
+    h+="<div style='background:"+C.rL+"11;border:1px solid "+C.rL+"44;border-radius:5px;padding:.65rem;margin-top:.45rem'>";
+    h+="<div style='color:"+C.rL+";font-weight:700;font-size:.78rem;margin-bottom:.3rem'>🌡️ تنبيهات الصيف</div>";
+    h+="<div style='font-size:.73rem;color:var(--txt);line-height:1.7'>زيادة الماء +25% | التغذية في 5ص + بعد 7م فقط | هدف <30°م داخل الحظيرة | مراوح + ضباب تبريد | مراقبة ضربة الشمس</div>";
+    h+="</div>";
+  }
+  h+="</div>";
+
+  // Daily notes
+  var noteVal=ld("note_"+mode+"_"+dk,"")||"";
+  h+="<div class='card' style='padding:.85rem;margin-top:.7rem'>";
+  h+="<div style='color:"+ac+";font-weight:700;font-size:.85rem;margin-bottom:.4rem'>📝 ملاحظات اليوم</div>";
+  h+="<textarea class='inp' rows='3' style='resize:vertical' placeholder='سجل أي ملاحظة...' onchange=\"svNote('"+mode+"','"+dk+"',this.value)\">"+noteVal+"</textarea>";
+  h+="</div>";
+  h+="</div>";
+  return h;
+}
+
+function renderAnimalGroup(title,col,tasks,ck,dk,ckKey){
+  if(!tasks.length) return "";
+  var done=0;
+  for(var i=0;i<tasks.length;i++) if(ck[dk+"-"+tasks[i].id]) done++;
+  var h="<div class='card' style='padding:.85rem;margin-bottom:.7rem;border-right:3px solid "+col+"'>";
+  h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem'>";
+  h+="<span style='font-weight:700;color:"+col+";font-size:.88rem'>"+title+"</span>";
+  h+="<span style='color:"+(done===tasks.length?C.gnL:"var(--mut)")+";font-size:.73rem'>"+done+"/"+tasks.length+"</span></div>";
+  for(var i=0;i<tasks.length;i++){
+    var t=tasks[i];
+    var isDone=!!ck[dk+"-"+t.id];
+    var pc=priColor(t.p);
+    var isCus=!!t.custom;
+    h+="<div onclick=\"TK('"+dk+"','"+t.id+"','"+ckKey+"')\" class='taskrow'>";
+    h+="<div class='chk"+(isDone?" done":"")+"'></div>";
+    h+="<div style='flex:1'>";
+    h+="<div style='font-size:.85rem;color:"+(isDone?"var(--mut)":"var(--txt)")+";text-decoration:"+(isDone?"line-through":"none")+";line-height:1.4'>"+t.tx+"</div>";
+    if(t.det) h+="<div style='font-size:.72rem;color:var(--dim);margin-top:.2rem;line-height:1.55'>"+t.det+"</div>";
+    if(t.time) h+="<div style='font-size:.68rem;color:var(--mut);margin-top:.15rem'>⏰ "+t.time+"</div>";
+    h+="</div>";
+    h+="<div style='display:flex;align-items:flex-start;gap:.3rem;flex-shrink:0;padding-top:.25rem'>";
+    h+="<div style='width:6px;height:6px;border-radius:50%;background:"+pc+"'></div>";
+    if(isCus) h+="<button class='db' onclick=\"event.stopPropagation();DelCT('"+t.mode+"','"+dk+"','"+t.id+"')\">×</button>";
+    h+="</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+
+// Helper builders (no template literals)
+function buildMorningFeedDetail(R,comp){
+  var lines=[];
+  var gNames={dry:"الجافة",preg:"الحوامل",lact:"المرضعات",stud:"الفحل",baby:"الصغار <3شهر",teen:"النامي"};
+  for(var gk in R){
+    var r=R[gk];
+    if(!r)continue;
+    var m60=Math.round(r.dmTotal*0.6*10)/10;
+    var barseem=Math.round(r.dmTotal*0.6*0.45*100)/100;
+    var shaeer=Math.round(r.dmTotal*0.6*0.22*100)/100;
+    lines.push(gNames[gk]+" ("+r.n+") → برسيم "+barseem+"كجم + شعير "+shaeer+"كجم");
+  }
+  return lines.join(" | ");
+}
+function buildEveningFeedDetail(R,comp){
+  var lines=[];
+  var gNames={dry:"الجافة",preg:"الحوامل",lact:"المرضعات",stud:"الفحل",baby:"الصغار",teen:"النامي"};
+  for(var gk in R){
+    var r=R[gk];
+    if(!r)continue;
+    var m40=Math.round(r.dmTotal*0.4*10)/10;
+    var barseem=Math.round(r.dmTotal*0.4*0.45*100)/100;
+    var shaeer=Math.round(r.dmTotal*0.4*0.22*100)/100;
+    lines.push(gNames[gk]+" ("+r.n+") → برسيم "+barseem+"كجم + شعير "+shaeer+"كجم");
+  }
+  return lines.join(" | ");
+}
+function buildMiddayDetail(R){
+  var parts=[];
+  if(R.preg){parts.push("حوامل ("+R.preg.n+"): برسيم "+Math.round(R.preg.dmPer*0.15*100)/100+"كجم + نوى تمر 0.2كجم/رأس + ماء بارد | الأعضاء: "+R.preg.ids);}
+  if(R.lact){parts.push("مرضعات ("+R.lact.n+"): برسيم "+Math.round(R.lact.dmPer*0.15*100)/100+"كجم + حبة البركة 10جم + ماء دافئ | الأعضاء: "+R.lact.ids);}
+  if(!parts.length) return "لا توجد حوامل أو مرضعات حالياً — تخطّ هذه الوجبة";
+  return parts.join(" || ");
+}
+function buildWaterDetail(R,isSummer){
+  var total=0;
+  for(var gk in R){if(R[gk])total+=R[gk].waterTotal;}
+  var factor=isSummer?"(صيف: +25% من الشتاء)":"";
+  return "الإجمالي: "+total+" لتر/يوم "+factor+" | تحقق من نظافة المشارب + غياب الطحالب + ضغط الماء | الصغار يشربون كل ساعتين";
+}
+function buildHealthCheck(g){
+  var lines=[];
+  if(g.baby.length){lines.push("صغار <3شهر ("+g.baby.length+"): تحقق من الإسهال + السرة + وضع الجسم | هم الأكثر خطورة");}
+  if(g.preg.length){lines.push("حوامل ("+g.preg.length+"): ملاحظة الإفرازات + تضخم الضرع + علامات المخاض");}
+  if(g.lact.length){lines.push("مرضعات ("+g.lact.length+"): فحص الضرع يومياً — احمرار أو تصلب = التهاب ضرع");}
+  lines.push("كل القطيع: حرارة طبيعية 38.5-40°م | قياس أي رأس فاتر أو خامل | اصطحب ترمومتر");
+  return lines.join(" | ");
+}
+function buildEveningHealth(g,mo){
+  var lines=[];
+  if(g.preg.length) lines.push("الحوامل ("+g.preg.ids+"): ابحث عن مخاط أبيض = قرب الولادة");
+  if(g.baby.length) lines.push("صغار الليل: تأكد من رضاعة كل صغير + دفء كافٍ");
+  if(mo>=5&&mo<=9) lines.push("صيف: هل يلهث أي رأس؟ رش ماء بارد فوراً");
+  lines.push("إغلاق المعالف الفارغة لمنع الفئران والحشرات");
+  return lines.join(" | ");
+}
+function buildHeadcount(g){
+  var parts=[];
+  if(g.dry.length) parts.push("جافة: "+g.dry.length+" ("+g.dry.map(function(a){return a.id;}).join("+")+ ")");
+  if(g.preg.length) parts.push("حوامل: "+g.preg.length);
+  if(g.lact.length) parts.push("مرضعات: "+g.lact.length);
+  if(g.stud.length) parts.push("فحل: "+g.stud.map(function(a){return a.id;}).join("+"));
+  if(g.baby.length) parts.push("صغار: "+g.baby.length);
+  if(g.teen.length) parts.push("نامي: "+g.teen.length);
+  return parts.join(" | ")+" | أي نقص = بحث فوري";
+}
+
+// ── SHARED HELPERS ──
+function TK(dk,tid,ckKey){
+  var d=ld(ckKey,{});
+  d[dk+"-"+tid]=!d[dk+"-"+tid];
+  sv(ckKey,d);render();
+}
+function SSess(s){S.sess=s;render();}
+function svNote(mode,dk,val){sv("note_"+mode+"_"+dk,val);}
+function showAddTask(mode){
+  var ac=mode==="palm"?C.gL:C.gnL;
+  var html="<div style='font-family:Amiri,serif;color:"+ac+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>➕ إضافة مهمة لليوم</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>وصف المهمة *</div>"+
+    "<textarea class='inp' id='ctt' rows='2' style='resize:vertical'></textarea></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>التفاصيل (كميات)</div>"+
+    "<input class='inp' id='ctd'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الوقت</div>"+
+    "<select class='sel' id='cts'><option value=''>أي وقت</option><option value='ص'>صباح</option><option value='م'>مساء</option></select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الأولوية</div>"+
+    "<select class='sel' id='ctp'><option value='c'>🔴 عالي</option><option value='i' selected>🟡 متوسط</option><option value='r'>🟢 منخفض</option></select></div>"+
+    "<div style='display:flex;gap:.45rem'>"+
+    "<button class='gb' style='flex:1;background:"+ac+";color:"+(mode==="palm"?"#0a0800":"#fff")+"' onclick=\"saveCT('"+mode+"')\">حفظ</button>"+
+    "<button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function saveCT(mode){
+  var txt=(document.getElementById("ctt").value||"").trim();
+  if(!txt)return;
+  var dk=new Date().toISOString().slice(0,10);
+  var key=mode==="palm"?"pcus":"acus";
+  var all=ld(key,{});var day=all[dk]||[];
+  day.push({id:"ct"+Date.now(),tx:txt,det:document.getElementById("ctd").value,s:document.getElementById("cts").value,p:document.getElementById("ctp").value,custom:true});
+  all[dk]=day;sv(key,all);closeModal();render();
+}
+function DelCT(mode,dk,tid){
+  if(!confirm("حذف؟"))return;
+  var key=mode==="palm"?"pcus":"acus";
+  var all=ld(key,{});var day=all[dk]||[];
+  var nd=[];for(var i=0;i<day.length;i++)if(day[i].id!==tid)nd.push(day[i]);
+  all[dk]=nd;sv(key,all);render();
+}
+
+// PALM TREE DETAIL
+// ════════════════════════════════════════════════════════════
+function pgPalmTree(){
+  if(!S.selTree)return"<div style='text-align:center;padding:3rem;color:var(--mut)'>انقر على نخلة في الخريطة</div>";
+  var t=S.selTree;
+  var vd=VM[t.variety]||VM.unknown;
+  var td=S.td[t.id]||{};
+  var dis=td.diseases||[];
+  var ferts=td.fertilizers||[];
+  var yl=td.yields||[];
+  var tab=S.ptab||"info";
+
+  var h="<div><div style='display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;flex-wrap:wrap'>";
+  h+="<button class='ob' onclick=\"SV('map')\">← الخريطة</button>";
+  h+="<div style='flex:1'><div style='font-family:Amiri,serif;color:"+C.gL+";font-size:1.3rem;font-weight:700'>"+t.id+"</div>";
+  h+="<div style='display:flex;align-items:center;gap:.35rem;margin-top:.1rem'>";
+  h+="<div style='width:9px;height:9px;border-radius:50%;background:"+vd.dot+"'></div>";
+  h+="<span style='color:var(--mut);font-size:.82rem'>"+vd.n+" • صف "+(t.row+1)+"، عمود "+(t.col+1)+"</span></div></div></div>";
+
+  var tabs=[{id:"info",l:"معلومات"},{id:"dis",l:"أمراض ("+dis.length+")"},{id:"fert",l:"تسميد ("+ferts.length+")"},{id:"yld",l:"إنتاج ("+yl.length+")"},{id:"edit",l:"✏️ تعديل"}];
+  h+="<div style='display:flex;gap:.28rem;margin-bottom:.8rem;border-bottom:1px solid var(--bdr);padding-bottom:.4rem;flex-wrap:wrap'>";
+  for(var i=0;i<tabs.length;i++){
+    var cls="sn"+(tab===tabs[i].id?" on":"");
+    h+="<button class='"+cls+"' onclick=\"setPTab('"+tabs[i].id+"')\">"+tabs[i].l+"</button>";
+  }
+  h+="</div>";
+
+  if(tab==="info"){
+    var statusMap={healthy:"🟢 سليمة",warning:"🟡 تحذير",diseased:"🔴 مريضة",dead:"⚫ ميتة"};
+    var pairs=[["رقم النخلة",t.id],["الصنف",vd.n],["الصف","صف "+(t.row+1)],["العمود","عمود "+(t.col+1)],["الحالة",statusMap[t.status]||"—"],["آخر تحديث",td.lastUpd||"—"]];
+    h+="<div class='card' style='padding:.85rem'><div class='g2'>";
+    for(var i=0;i<pairs.length;i++){
+      h+="<div class='stat' style='text-align:right'><div style='color:var(--dim);font-size:.65rem'>"+pairs[i][0]+"</div><div style='color:"+C.gL+";font-size:.82rem;font-weight:700;margin-top:.08rem'>"+pairs[i][1]+"</div></div>";
+    }
+    h+="</div></div>";
+    if(td.notes){h+="<div class='card' style='padding:.85rem;margin-top:.65rem'><div style='color:var(--mut);font-size:.72rem;margin-bottom:.2rem'>ملاحظات</div><div style='color:var(--txt);font-size:.85rem;line-height:1.7'>"+td.notes+"</div></div>";}
+  }
+  if(tab==="dis"){
+    h+="<button class='gb' style='margin-bottom:.8rem' onclick='showAddPDis()'>+ إضافة سجل مرض</button>";
+    if(!dis.length)h+="<div style='color:var(--mut);text-align:center;padding:2rem'>🟢 لا توجد أمراض مسجلة</div>";
+    for(var i=dis.length-1;i>=0;i--){
+      var d=dis[i];
+      h+="<div class='card' style='padding:.8rem;margin-bottom:.5rem;border-right:3px solid "+C.rL+"'>";
+      h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem'>";
+      h+="<span style='color:"+C.rL+";font-weight:700'>"+d.name+"</span>";
+      h+="<div style='display:flex;gap:.4rem;align-items:center'>";
+      h+="<span style='color:var(--mut);font-size:.7rem'>"+d.date+"</span>";
+      h+="<button class='db' onclick=\"delPR('diseases',"+i+")\">حذف</button></div></div>";
+      if(d.symptoms)h+="<div style='color:var(--mut);font-size:.8rem'>الأعراض: "+d.symptoms+"</div>";
+      if(d.treatment)h+="<div style='color:"+C.gnL+";font-size:.8rem'>العلاج: "+d.treatment+"</div>";
+      h+="</div>";
+    }
+  }
+  if(tab==="fert"){
+    h+="<button class='gb' style='margin-bottom:.8rem' onclick='showAddPFert()'>+ إضافة سجل تسميد</button>";
+    if(!ferts.length)h+="<div style='color:var(--mut);text-align:center;padding:2rem'>لا توجد سجلات تسميد</div>";
+    for(var i=ferts.length-1;i>=0;i--){
+      var f=ferts[i];
+      h+="<div class='card' style='padding:.8rem;margin-bottom:.5rem;border-right:3px solid "+C.gL+"'>";
+      h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem'>";
+      h+="<span style='color:"+C.gL+";font-weight:700'>"+f.fert+"</span>";
+      h+="<div style='display:flex;gap:.4rem;align-items:center'>";
+      h+="<span style='color:var(--mut);font-size:.7rem'>"+f.date+"</span>";
+      h+="<button class='db' onclick=\"delPR('fertilizers',"+i+")\">حذف</button></div></div>";
+      if(f.qty)h+="<div style='color:var(--mut);font-size:.8rem'>الكمية: "+f.qty+" | طريقة: "+(f.meth||"—")+"</div>";
+      h+="</div>";
+    }
+  }
+  if(tab==="yld"){
+    var b=YB[t.variety];
+    h+="<button class='gb' style='margin-bottom:.8rem' onclick='showAddPYield()'>+ إضافة سجل إنتاج</button>";
+    if(!yl.length)h+="<div style='color:var(--mut);text-align:center;padding:2rem'>لا توجد سجلات إنتاج</div>";
+    for(var i=yl.length-1;i>=0;i--){
+      var y=yl[i];
+      var pct=b?Math.round(y.kg/b.fg*100):null;
+      h+="<div class='card' style='padding:.8rem;margin-bottom:.5rem;border-right:3px solid "+C.bL+"'>";
+      h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem'>";
+      h+="<span style='color:"+C.bL+";font-weight:700'>موسم "+y.season+"</span>";
+      h+="<div style='display:flex;gap:.4rem;align-items:center'>";
+      h+="<span style='color:"+C.gL+";font-weight:700'>"+y.kg+" كجم</span>";
+      h+="<button class='db' onclick=\"delPR('yields',"+i+")\">حذف</button></div></div>";
+      if(b&&pct!==null){
+        var pctColor=pct>=100?C.gnL:(pct>=70?C.org:C.rL);
+        h+="<div style='background:var(--sur);border-radius:3px;height:5px;overflow:hidden;margin-bottom:.3rem'>";
+        h+="<div class='bar' style='width:"+Math.min(pct,100)+"%;background:"+pctColor+"'></div></div>";
+        h+="<div style='font-size:.72rem;color:var(--mut)'>"+pct+"% من هدف درجة أولى ("+b.fg+" كجم)</div>";
+      }
+      if(y.price>0)h+="<div style='color:"+C.gnL+";font-size:.8rem'>الإيراد: "+(y.kg*y.price).toLocaleString()+" ريال</div>";
+      h+="</div>";
+    }
+  }
+  if(tab==="edit"){
+    h+="<div class='card' style='padding:.9rem'><div style='display:grid;gap:.7rem'>";
+    h+="<div><div style='color:"+C.gL+";font-weight:700;font-size:.85rem;margin-bottom:.35rem'>🌴 الصنف</div>";
+    h+="<select class='sel' onchange='setTreeVar(this.value)'>";
+    for(var i=0;i<VARS.length;i++){
+      var s=(t.variety===VARS[i].id)?" selected":"";
+      h+="<option value='"+VARS[i].id+"'"+s+">"+VARS[i].n+"</option>";
+    }
+    h+="</select></div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.2rem'>الحالة</div>";
+    h+="<select class='sel' onchange='setTreeStatus(this.value)'>";
+    h+="<option value='healthy'"+(t.status==="healthy"?" selected":"")+">🟢 سليمة</option>";
+    h+="<option value='warning'"+(t.status==="warning"?" selected":"")+">🟡 تحذير</option>";
+    h+="<option value='diseased'"+(t.status==="diseased"?" selected":"")+">🔴 مريضة</option>";
+    h+="<option value='dead'"+(t.status==="dead"?" selected":"")+">⚫ ميتة</option>";
+    h+="</select></div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.2rem'>ملاحظات</div>";
+    h+="<textarea class='inp' rows='3' style='resize:vertical' onchange='updTD(this.value)'>"+(td.notes||"")+"</textarea></div>";
+    h+="<button class='gb' onclick='savePEdit()'>💾 حفظ</button>";
+    h+="</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+function setPTab(t){S.ptab=t;render();}
+function setTreeStatus(s){if(!S.selTree)return;for(var i=0;i<S.trees.length;i++){if(S.trees[i].id===S.selTree.id){S.trees[i].status=s;S.selTree=S.trees[i];break;}}sav_t();render();}
+function setTreeVar(v){if(!S.selTree)return;for(var i=0;i<S.trees.length;i++){if(S.trees[i].id===S.selTree.id){S.trees[i].variety=v;S.selTree=S.trees[i];break;}}sav_t();render();}
+function updTD(v){if(!S.selTree)return;var id=S.selTree.id;if(!S.td[id])S.td[id]={};S.td[id].notes=v;sav_td();}
+function savePEdit(){if(!S.selTree)return;var id=S.selTree.id;if(!S.td[id])S.td[id]={};S.td[id].lastUpd=new Date().toISOString().slice(0,10);sav_td();alert("✓ تم الحفظ");}
+function delPR(type,idx){if(!S.selTree||!confirm("حذف؟"))return;var id=S.selTree.id;if(!S.td[id]||!S.td[id][type])return;S.td[id][type].splice(idx,1);sav_td();render();}
+function showAddPDis(){
+  var html="<div style='font-family:Amiri,serif;color:"+C.rL+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>🦠 سجل مرض</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>اسم المرض *</div><input class='inp' id='pd_n'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>التاريخ</div><input type='date' class='inp' id='pd_d' value='"+new Date().toISOString().slice(0,10)+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الأعراض</div><textarea class='inp' id='pd_s' rows='2' style='resize:vertical'></textarea></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>العلاج</div><textarea class='inp' id='pd_t' rows='2' style='resize:vertical'></textarea></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='gb' style='flex:1' onclick='savePDis()'>حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function savePDis(){
+  var n=(document.getElementById("pd_n").value||"").trim();
+  if(!n||!S.selTree)return;
+  var id=S.selTree.id;
+  if(!S.td[id])S.td[id]={};
+  if(!S.td[id].diseases)S.td[id].diseases=[];
+  S.td[id].diseases.push({name:n,date:document.getElementById("pd_d").value,symptoms:document.getElementById("pd_s").value,treatment:document.getElementById("pd_t").value});
+  setTreeStatus("diseased");
+  closeModal();
+}
+function showAddPFert(){
+  var html="<div style='font-family:Amiri,serif;color:"+C.gL+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>🌱 سجل تسميد</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>السماد *</div><input class='inp' id='pf_n' placeholder='نترات الأمونيوم...'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>التاريخ</div><input type='date' class='inp' id='pf_d' value='"+new Date().toISOString().slice(0,10)+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الكمية</div><input class='inp' id='pf_q' placeholder='500 جرام'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>طريقة التطبيق</div><select class='sel' id='pf_m'><option>إضافة للتربة</option><option>رش ورقي</option><option>حقن جذع</option><option>تسميد بالتنقيط</option></select></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='gb' style='flex:1' onclick='savePFert()'>حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function savePFert(){
+  var n=(document.getElementById("pf_n").value||"").trim();
+  if(!n||!S.selTree)return;
+  var id=S.selTree.id;
+  if(!S.td[id])S.td[id]={};
+  if(!S.td[id].fertilizers)S.td[id].fertilizers=[];
+  S.td[id].fertilizers.push({fert:n,date:document.getElementById("pf_d").value,qty:document.getElementById("pf_q").value,meth:document.getElementById("pf_m").value});
+  sav_td();closeModal();render();
+}
+function showAddPYield(){
+  var html="<div style='font-family:Amiri,serif;color:"+C.bL+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>📊 سجل إنتاج</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الموسم *</div><input class='inp' id='py_s' value='"+new Date().getFullYear()+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الإنتاج (كجم) *</div><input type='number' class='inp' id='py_k'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>درجة الجودة</div><select class='sel' id='py_g'><option>درجة أولى ممتازة</option><option>درجة أولى</option><option>درجة ثانية</option><option>درجة ثالثة</option></select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>سعر البيع (ريال/كجم)</div><input type='number' class='inp' id='py_p'></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='gb' style='flex:1' onclick='savePYield()'>حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function savePYield(){
+  var kg=parseFloat(document.getElementById("py_k").value)||0;
+  if(!kg||!S.selTree)return;
+  var id=S.selTree.id;
+  if(!S.td[id])S.td[id]={};
+  if(!S.td[id].yields)S.td[id].yields=[];
+  S.td[id].yields.push({season:document.getElementById("py_s").value,kg:kg,grade:document.getElementById("py_g").value,price:parseFloat(document.getElementById("py_p").value)||0});
+  sav_td();closeModal();render();
+}
+
+// ════════════════════════════════════════════════════════════
+// SPACING
+// ════════════════════════════════════════════════════════════
+function pgSpacing(){
+  var zones=[
+    {z:"الشمال — الصفوف 1-6",sp:5.8,bc:C.rL,l:"تكدس حرج",prob:"تداخل 80% بين التيجان — تنافس حاد على الضوء والماء",fix:"إزالة كل نخلة بديلة (40%) — تباع كفسائل",imp:"+35-45% لكل شجرة خلال 3 مواسم"},
+    {z:"الوسط — الصفوف 7-14",sp:6.8,bc:C.org,l:"تكدس معتدل",prob:"تداخل ~60% — أفضل لكن دون معيار 9م",fix:"إزالة انتقائية كل 3 أشجار",imp:"+20-30% لكل شجرة"},
+    {z:"الجنوب — الصفوف 15-22",sp:7.5,bc:C.gnL,l:"مقبول",prob:"أقرب للمعيار — فراغات في الجنوب الشرقي",fix:"ملء الفراغات بعجوة أو عنبرة",imp:"إضافة 8-12 نخلة = +500 كجم سنوياً"}
+  ];
+  var h="<div><div class='sh'>📐 تحليل التباعد</div>";
+  for(var i=0;i<zones.length;i++){
+    var z=zones[i];
+    h+="<div class='card' style='padding:.9rem;margin-bottom:.75rem;border-right:3px solid "+z.bc+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem'>";
+    h+="<span style='font-weight:700'>"+z.z+"</span>";
+    h+="<div style='display:flex;align-items:center;gap:.35rem'>";
+    h+="<span style='font-family:Amiri,serif;font-size:1.1rem;font-weight:700;color:"+z.bc+"'>"+z.sp+"م</span>";
+    h+="<span style='font-size:.68rem;color:"+z.bc+";background:"+z.bc+"22;padding:2px 7px;border-radius:9px;font-weight:700'>"+z.l+"</span></div></div>";
+    h+="<div style='background:var(--sur);border-radius:3px;height:7px;overflow:hidden;margin-bottom:.45rem'>";
+    h+="<div class='bar' style='width:"+(z.sp/12*100)+"%;background:"+z.bc+"'></div></div>";
+    h+="<div style='margin-bottom:.3rem'><span style='color:"+C.rL+";font-size:.7rem;font-weight:700'>🔍 </span><span style='color:var(--mut);font-size:.8rem'>"+z.prob+"</span></div>";
+    h+="<div style='margin-bottom:.3rem'><span style='color:"+C.gnL+";font-size:.7rem;font-weight:700'>✅ </span><span style='color:var(--txt);font-size:.8rem'>"+z.fix+"</span></div>";
+    h+="<div style='background:"+C.bL+"11;border-radius:4px;padding:.42rem .6rem'><span style='color:"+C.bL+";font-size:.7rem;font-weight:700'>📈 </span><span style='color:var(--mut);font-size:.8rem'>"+z.imp+"</span></div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// YIELD
+// ════════════════════════════════════════════════════════════
+function pgYield(){
+  var yl=S.yields;
+  var tot=0;for(var i=0;i<yl.length;i++)tot+=yl[i].kg;
+  var fg=0;for(var i=0;i<VARS.length;i++){var b=YB[VARS[i].id];if(b)fg+=b.fg*VARS[i].cnt;}
+  var pct=fg>0?Math.round(tot/fg*100):0;
+  var rev=0;for(var i=0;i<yl.length;i++){var pp=(YB[yl[i].variety]||{}).pp||0;rev+=yl[i].price>0?yl[i].kg*yl[i].price:yl[i].kg*pp;}
+
+  var h="<div><div class='sh'>📊 سجل الإنتاج</div>";
+  h+="<div class='card' style='padding:.9rem;margin-bottom:.85rem;border-right:3px solid "+C.gL+"'>";
+  h+="<div class='g3' style='margin-bottom:.7rem'>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.gL+"'>"+tot.toLocaleString()+" كجم</div><div class='statl'>الإنتاج المسجل</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.bL+"'>"+fg.toLocaleString()+" كجم</div><div class='statl'>هدف درجة أولى</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.gnL+"'>"+rev.toLocaleString()+" ريال</div><div class='statl'>الإيراد</div></div></div>";
+  h+="<div style='background:var(--sur);border-radius:4px;height:10px;overflow:hidden'>";
+  h+="<div class='bar' style='width:"+Math.min(pct,100)+"%;background:linear-gradient(90deg,"+C.grn+","+C.gL+")'></div></div></div>";
+  h+="<button class='gb' style='margin-bottom:.85rem' onclick='showAddYield()'>+ تسجيل موسم حصاد</button>";
+
+  for(var i=0;i<VARS.length;i++){
+    var v=VARS[i];
+    var b=YB[v.id];if(!b)continue;
+    var actual=0,rv=0;
+    for(var j=0;j<yl.length;j++){
+      if(yl[j].variety===v.id){
+        actual+=yl[j].kg;
+        rv+=yl[j].price>0?yl[j].kg*yl[j].price:yl[j].kg*b.pp;
+      }
+    }
+    var fgv=b.fg*v.cnt;
+    var pv=fgv>0?Math.round(actual/fgv*100):0;
+    var statusColor=actual>0?(pv>=100?C.gnL:(pv>=70?C.org:C.rL)):C.mut;
+    var barColor=actual===0?"var(--bdr)":statusColor;
+    h+="<div class='card' style='padding:.8rem;margin-bottom:.55rem'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem'>";
+    h+="<div style='display:flex;align-items:center;gap:.35rem'>";
+    h+="<div style='width:8px;height:8px;border-radius:50%;background:"+v.dot+"'></div>";
+    h+="<span style='font-weight:700;font-size:.87rem'>"+v.n+"</span>";
+    h+="<span style='color:var(--dim);font-size:.7rem'>("+v.cnt+" شجرة)</span></div>";
+    h+="<span style='color:"+statusColor+";font-weight:700;font-size:.85rem'>"+(actual>0?actual+" كجم ("+pv+"%)":"—")+"</span></div>";
+    h+="<div style='background:var(--sur);border-radius:3px;height:5px;overflow:hidden'>";
+    h+="<div class='bar' style='width:"+Math.min(pv,100)+"%;background:"+barColor+"'></div></div>";
+    if(actual>0)h+="<div style='margin-top:.28rem;color:"+C.gL+";font-size:.72rem'>الإيراد: "+rv.toLocaleString()+" ريال</div>";
+    h+="</div>";
+  }
+  if(yl.length>0){
+    h+="<div class='sh' style='font-size:.9rem;margin-top:1rem'>سجل الحصادات</div>";
+    for(var i=yl.length-1;i>=0;i--){
+      var y=yl[i];
+      var vi=VM[y.variety]||{n:y.variety,dot:"#444"};
+      h+="<div class='card' style='padding:.75rem;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center'>";
+      h+="<div><div style='display:flex;align-items:center;gap:.35rem'>";
+      h+="<div style='width:7px;height:7px;border-radius:50%;background:"+vi.dot+"'></div>";
+      h+="<span style='color:"+C.gL+";font-weight:700'>"+vi.n+" — موسم "+y.season+"</span></div>";
+      h+="<div style='color:var(--mut);font-size:.75rem'>"+y.kg+" كجم — "+(y.grade||"")+"</div></div>";
+      h+="<div style='display:flex;align-items:center;gap:.45rem'>";
+      if(y.price>0)h+="<span style='color:"+C.gnL+";font-size:.82rem'>"+(y.kg*y.price).toLocaleString()+" ريال</span>";
+      h+="<button class='db' onclick=\"delYield("+i+")\">حذف</button></div></div>";
+    }
+  }
+  h+="</div>";
+  return h;
+}
+function showAddYield(){
+  var opts="";
+  for(var i=0;i<VARS.length;i++){if(VARS[i].id!=="unknown")opts+="<option value='"+VARS[i].id+"'>"+VARS[i].n+"</option>";}
+  var html="<div style='font-family:Amiri,serif;color:"+C.bL+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>📊 موسم حصاد</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الصنف *</div><select class='sel' id='fy_v'>"+opts+"</select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الموسم *</div><input class='inp' id='fy_s' value='"+new Date().getFullYear()+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الإنتاج (كجم) *</div><input type='number' class='inp' id='fy_k'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>درجة الجودة</div><select class='sel' id='fy_g'><option>درجة أولى ممتازة</option><option>درجة أولى</option><option>درجة ثانية</option><option>درجة ثالثة</option></select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>سعر البيع (ريال/كجم)</div><input type='number' class='inp' id='fy_p'></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='gb' style='flex:1' onclick='saveYield()'>حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function saveYield(){
+  var kg=parseFloat(document.getElementById("fy_k").value)||0;
+  var variety=document.getElementById("fy_v").value;
+  if(!kg||!variety)return;
+  S.yields.push({variety:variety,season:document.getElementById("fy_s").value,kg:kg,grade:document.getElementById("fy_g").value,price:parseFloat(document.getElementById("fy_p").value)||0});
+  sv("yields",S.yields);closeModal();render();
+}
+function delYield(idx){if(!confirm("حذف؟"))return;S.yields.splice(idx,1);sv("yields",S.yields);render();}
+
+// ════════════════════════════════════════════════════════════
+// NUTRITION
+// ════════════════════════════════════════════════════════════
+var nutS={v:"ajwa",n:502};
+function pgNut(){
+  var b=YB[nutS.v]||YB.ajwa;
+  var nN=Math.round(b.n*nutS.n);
+  var nP=Math.round(b.p*nutS.n);
+  var nK=Math.round(b.k*nutS.n);
+  var opts="";
+  for(var i=0;i<VARS.length;i++){
+    if(VARS[i].id==="unknown")continue;
+    var s=(nutS.v===VARS[i].id)?" selected":"";
+    opts+="<option value='"+VARS[i].id+"'"+s+">"+VARS[i].n+"</option>";
+  }
+  var h="<div><div class='sh'>🧮 حاسبة التسميد</div>";
+  h+="<div class='g2' style='margin-bottom:.85rem'>";
+  h+="<div class='card' style='padding:.85rem'>";
+  h+="<div style='color:"+C.gL+";font-weight:700;font-size:.85rem;margin-bottom:.5rem'>الصنف وعدد الأشجار</div>";
+  h+="<div style='margin-bottom:.45rem'><div style='color:var(--mut);font-size:.72rem;margin-bottom:.18rem'>الصنف</div>";
+  h+="<select class='sel' onchange='setNutV(this.value)'>"+opts+"</select></div>";
+  h+="<div><div style='color:var(--mut);font-size:.72rem;margin-bottom:.18rem'>عدد الأشجار</div>";
+  h+="<input type='number' class='inp' value='"+nutS.n+"' onchange='setNutN(this.value)'></div>";
+  h+="</div></div>";
+  h+="<div class='g3' style='margin-bottom:.85rem'>";
+  var elems=[["N",nN,C.gnL],["P₂O₅",nP,C.bL],["K₂O",nK,C.gL]];
+  for(var i=0;i<elems.length;i++){
+    h+="<div class='stat' style='border-top:2px solid "+elems[i][2]+"'>";
+    h+="<div style='color:"+elems[i][2]+";font-weight:700;font-family:Amiri,serif;font-size:1.1rem'>"+elems[i][1].toLocaleString()+"</div>";
+    h+="<div class='statl'>كجم/سنة — "+elems[i][0]+"</div></div>";
+  }
+  h+="</div>";
+  var sched=[
+    {p:"ديسمبر-يناير",inp:"سماد بلدي 25-50 كجم/شجرة + "+Math.round(nP*0.8)+" كجم P₂O₅",f:"استعداد"},
+    {p:"فبراير",inp:Math.round(nN*0.33)+" كجم N + بورون 0.1% + زنك 0.3%",f:"التزهير"},
+    {p:"أبريل-مايو",inp:Math.round(nN*0.33)+" كجم N + "+Math.round(nK*0.4)+" كجم K₂O",f:"نمو الثمار"},
+    {p:"يونيو-أغسطس",inp:Math.round(nN*0.34)+" كجم N + "+Math.round(nK*0.6)+" كجم K₂O",f:"سكر + جودة"},
+    {p:"أكتوبر",inp:Math.round(nP*0.2)+" كجم P₂O₅ + Mg 200 جم/شجرة",f:"استعادة"}
+  ];
+  h+="<div class='sh' style='font-size:.9rem'>📅 جدول التسميد المحسوب</div>";
+  for(var i=0;i<sched.length;i++){
+    h+="<div class='card' style='padding:.8rem;margin-bottom:.55rem;border-right:3px solid "+C.gL+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.28rem'>";
+    h+="<span style='font-weight:700'>"+sched[i].p+"</span>";
+    h+="<span style='font-size:.7rem;color:"+C.gL+";background:"+C.gL+"22;padding:2px 7px;border-radius:9px;font-weight:700'>"+sched[i].f+"</span></div>";
+    h+="<div style='color:var(--mut);font-size:.82rem'>"+sched[i].inp+"</div></div>";
+  }
+  h+="<div class='card' style='padding:.75rem;border-right:3px solid "+C.bL+";margin-top:.55rem'>";
+  h+="<div style='color:"+C.bL+";font-weight:700;font-size:.85rem;margin-bottom:.3rem'>💧 الاحتياج المائي السنوي</div>";
+  h+="<div>"+(nutS.n*95).toLocaleString()+" م³/سنة ("+Math.round(nutS.n*95/365)+" م³/يوم)</div></div>";
+  h+="</div>";
+  return h;
+}
+function setNutV(v){nutS.v=v;render();}
+function setNutN(n){nutS.n=parseInt(n)||1;render();}
+
+// ════════════════════════════════════════════════════════════
+// POST-HARVEST
+// ════════════════════════════════════════════════════════════
+function pgHarv(){
+  var grades=[
+    {g:"علية (GI محمي — عجوة مدينة)",mc:"<20%",def:"0%",price:"200-350 ريال/كجم",col:C.gold},
+    {g:"درجة أولى ممتازة",mc:"<20%",def:"≤5%",price:"80-180 ريال/كجم",col:C.gL},
+    {g:"درجة أولى",mc:"<22%",def:"≤10%",price:"30-100 ريال/كجم",col:C.gnL},
+    {g:"درجة ثانية",mc:"<25%",def:"≤25%",price:"15-35 ريال/كجم",col:C.org},
+    {g:"درجة ثالثة",mc:"أي",def:">25%",price:"5-15 ريال/كجم",col:C.mut}
+  ];
+  var h="<div><div class='sh'>🏆 تصنيف وتخزين التمور</div>";
+  for(var i=0;i<grades.length;i++){
+    var g=grades[i];
+    h+="<div class='card' style='padding:.8rem;margin-bottom:.55rem;border-right:3px solid "+g.col+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem'>";
+    h+="<span style='font-weight:700;font-size:.88rem'>"+g.g+"</span>";
+    h+="<span style='color:"+g.col+";font-weight:700;font-size:.85rem'>"+g.price+"</span></div>";
+    h+="<div style='display:flex;gap:.45rem'>";
+    h+="<div style='background:var(--sur);border-radius:3px;padding:.28rem .5rem;flex:1'><div style='color:var(--dim);font-size:.62rem'>رطوبة</div><div style='font-size:.78rem;font-weight:600'>"+g.mc+"</div></div>";
+    h+="<div style='background:var(--sur);border-radius:3px;padding:.28rem .5rem;flex:1'><div style='color:var(--dim);font-size:.62rem'>عيوب مسموح</div><div style='font-size:.78rem;font-weight:600'>"+g.def+"</div></div>";
+    h+="</div></div>";
+  }
+  h+="<div class='sh' style='font-size:.9rem;margin-top:.85rem'>❄️ التخزين البارد</div>";
+  var stor=[{t:"-18°م",l:"12+ شهراً",u:"تصدير + عجوة"},{t:"0°م",l:"حتى 12 شهراً",u:"تجاري محلي"},{t:"4-10°م",l:"3-6 أشهر",u:"موسمي"},{t:"20°م",l:"شهر واحد",u:"بيع فوري"}];
+  for(var i=0;i<stor.length;i++){
+    h+="<div class='card' style='padding:.75rem;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center'>";
+    h+="<div><div style='font-family:Amiri,serif;font-size:1.1rem;font-weight:700;color:"+C.gL+"'>"+stor[i].t+"</div>";
+    h+="<div style='color:var(--mut);font-size:.75rem'>"+stor[i].u+"</div></div>";
+    h+="<div style='color:"+C.gnL+";font-weight:700'>"+stor[i].l+"</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// DISEASES (palm + animal)
+// ════════════════════════════════════════════════════════════
+function pgDis(type){
+  var isPalm=(type==="palm");
+  var ac=isPalm?C.gL:C.gnL;
+  var diseases=isPalm?PALM_DIS:ANIM_DIS;
+  var log=isPalm?S.pdl:S.adl;
+  var h="<div><div class='sh' style='color:"+ac+"'>"+(isPalm?"🌴":"🐐")+" دليل الأمراض</div>";
+  h+="<button class='gb' style='margin-bottom:.85rem' onclick=\"showDLog('"+(isPalm?"p":"a")+"')\">+ تسجيل حادثة مرضية</button>";
+  if(log.length>0){
+    h+="<div style='font-weight:700;color:"+ac+";font-size:.85rem;margin-bottom:.55rem'>📋 سجل الحوادث</div>";
+    for(var i=log.length-1;i>=0;i--){
+      var d=log[i];
+      h+="<div class='card' style='padding:.75rem;margin-bottom:.5rem;border-right:3px solid "+C.rL+"'>";
+      h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem'>";
+      h+="<span style='color:"+C.rL+";font-weight:700'>"+d.name+"</span>";
+      h+="<div style='display:flex;gap:.4rem;align-items:center'>";
+      h+="<span style='color:var(--mut);font-size:.7rem'>"+d.date+"</span>";
+      h+="<button class='db' onclick=\"delDLog('"+(isPalm?"p":"a")+"',"+i+")\">حذف</button></div></div>";
+      if(d.affected)h+="<div style='color:var(--mut);font-size:.78rem'>المصابة: "+d.affected+"</div>";
+      if(d.symptoms)h+="<div style='color:var(--mut);font-size:.78rem'>الأعراض: "+d.symptoms+"</div>";
+      if(d.treatment)h+="<div style='color:"+C.gnL+";font-size:.78rem'>العلاج: "+d.treatment+"</div>";
+      h+="</div>";
+    }
+  }
+  h+="<div style='font-weight:700;color:"+ac+";font-size:.85rem;margin:1rem 0 .55rem'>📚 الأمراض الشائعة</div>";
+  for(var i=0;i<diseases.length;i++){
+    var d=diseases[i];
+    h+="<div class='card' style='padding:.85rem;margin-bottom:.7rem;border-right:3px solid "+d.bc+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem'>";
+    h+="<span style='font-weight:700;font-size:.9rem'>"+d.n+"</span>";
+    h+="<span style='font-size:.68rem;color:"+d.bc+";background:"+d.bc+"22;padding:2px 7px;border-radius:9px;font-weight:700'>"+d.sev+"</span></div>";
+    h+="<div style='color:"+C.rL+";font-weight:700;font-size:.75rem;margin-bottom:.25rem'>الأعراض:</div>";
+    for(var j=0;j<d.sym.length;j++){
+      h+="<div style='display:flex;gap:.3rem;margin-bottom:.2rem'><span style='color:"+d.bc+";font-size:.72rem'>●</span><span style='color:var(--mut);font-size:.8rem'>"+d.sym[j]+"</span></div>";
+    }
+    h+="<div style='color:"+C.gnL+";font-weight:700;font-size:.75rem;margin:.4rem 0 .25rem'>العلاج:</div>";
+    for(var j=0;j<d.tx.length;j++){
+      h+="<div style='display:flex;gap:.3rem;margin-bottom:.2rem'><span style='color:"+C.gnL+";font-size:.72rem'>✓</span><span style='color:var(--txt);font-size:.8rem'>"+d.tx[j]+"</span></div>";
+    }
+    h+="<div style='background:"+C.gnL+"11;border-radius:4px;padding:.45rem .6rem;margin-top:.45rem;font-size:.78rem;color:var(--mut)'>🛡 الوقاية: "+d.prev+"</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+function showDLog(typ){
+  var html="<div style='font-family:Amiri,serif;color:"+C.rL+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>🦠 تسجيل حادثة</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>اسم المرض *</div><input class='inp' id='dl_n'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>التاريخ</div><input type='date' class='inp' id='dl_d' value='"+new Date().toISOString().slice(0,10)+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>المصابة</div><input class='inp' id='dl_a' placeholder='T001 أو G002...'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الأعراض</div><textarea class='inp' id='dl_s' rows='2' style='resize:vertical'></textarea></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>العلاج</div><textarea class='inp' id='dl_t' rows='2' style='resize:vertical'></textarea></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='gb' style='flex:1' onclick=\"saveDLog('"+typ+"')\">حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function saveDLog(typ){
+  var n=(document.getElementById("dl_n").value||"").trim();
+  if(!n)return;
+  var rec={name:n,date:document.getElementById("dl_d").value,affected:document.getElementById("dl_a").value,symptoms:document.getElementById("dl_s").value,treatment:document.getElementById("dl_t").value};
+  if(typ==="p"){S.pdl.push(rec);sv("pdl",S.pdl);}
+  else{S.adl.push(rec);sv("adl",S.adl);}
+  closeModal();render();
+}
+function delDLog(typ,idx){
+  if(!confirm("حذف؟"))return;
+  if(typ==="p"){S.pdl.splice(idx,1);sv("pdl",S.pdl);}
+  else{S.adl.splice(idx,1);sv("adl",S.adl);}
+  render();
+}
+
+// ════════════════════════════════════════════════════════════
+// HERD
+// ════════════════════════════════════════════════════════════
+function pgHerd(farmType){
+  var isGoat=(farmType==="goat");
+  var ac=isGoat?C.gnL:C.prL;
+  var icon=isGoat?"🐐":"🐑";
+  var myA=[];
+  for(var i=0;i<S.animals.length;i++){
+    var b=BM[S.animals[i].br];
+    if(b&&((isGoat&&b.t==="goat")||(!isGoat&&b.t==="sheep")))myA.push(S.animals[i]);
+  }
+  var fbr=S.fbr||"all";
+  var filtered=[];
+  for(var i=0;i<myA.length;i++){
+    if(fbr==="all"||(fbr==="female"&&myA[i].sex==="female")||(fbr==="male"&&myA[i].sex==="male")||(fbr==="kid"&&myA[i].sex==="kid")){
+      filtered.push(myA[i]);
+    }
+  }
+  var does=0,bucks=0,kids=0,totVal=0;
+  for(var i=0;i<myA.length;i++){
+    if(myA[i].sex==="female")does++;
+    else if(myA[i].sex==="male")bucks++;
+    else kids++;
+    totVal+=myA[i].pp||estVal(myA[i]);
+  }
+  var avgTwin=0;
+  var typeBreeds=[];
+  for(var i=0;i<BREEDS.length;i++){if(BREEDS[i].t===(isGoat?"goat":"sheep"))typeBreeds.push(BREEDS[i]);}
+  for(var i=0;i<typeBreeds.length;i++)avgTwin+=typeBreeds[i].twin;
+  avgTwin=avgTwin/(typeBreeds.length||1);
+  var annual=Math.round(does*(1+avgTwin/100));
+  var clsBtn=isGoat?"gn":"pn";
+
+  var h="<div>";
+  h+="<div style='font-family:Amiri,serif;color:"+ac+";font-size:1.05rem;font-weight:700;margin-bottom:.7rem'>"+icon+" القطيع — "+myA.length+" رأس</div>";
+  h+="<div class='g4' style='margin-bottom:.85rem'>";
+  h+="<div class='stat'><div class='statv' style='color:"+ac+"'>"+does+"</div><div class='statl'>إناث</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.gL+"'>"+bucks+"</div><div class='statl'>ذكور</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.bL+"'>"+kids+"</div><div class='statl'>صغار</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.tel+"'>"+totVal.toLocaleString()+"</div><div class='statl'>القيمة الإجمالية (ريال)</div></div>";
+  h+="</div>";
+  h+="<div class='card' style='padding:.75rem;margin-bottom:.85rem;border-right:3px solid "+ac+"'>";
+  h+="<div style='color:"+ac+";font-size:.78rem;font-weight:700'>📈 توقع الإنتاج السنوي</div>";
+  h+="<div style='color:var(--mut);font-size:.8rem;margin-top:.25rem'>";
+  h+="من "+does+" أنثى × توأمية "+Math.round(avgTwin)+"% = <strong style='color:"+ac+"'>"+annual+" مولود/سنة</strong></div></div>";
+  h+="<div style='display:flex;gap:.35rem;margin-bottom:.85rem;flex-wrap:wrap'>";
+  h+="<button class='rb' onclick=\"showAddAnim('"+farmType+"')\">+ إضافة "+(isGoat?"ماعزة":"خروف")+"</button>";
+  h+="<button class='ob"+(fbr==="all"?" "+clsBtn:"")+"' onclick=\"setFbr('all')\">الكل</button>";
+  h+="<button class='ob"+(fbr==="female"?" "+clsBtn:"")+"' onclick=\"setFbr('female')\">إناث</button>";
+  h+="<button class='ob"+(fbr==="male"?" "+clsBtn:"")+"' onclick=\"setFbr('male')\">ذكور</button>";
+  h+="<button class='ob"+(fbr==="kid"?" "+clsBtn:"")+"' onclick=\"setFbr('kid')\">صغار</button>";
+  h+="</div>";
+
+  if(!filtered.length){
+    h+="<div style='text-align:center;color:var(--mut);padding:3rem'>لا توجد حيوانات في هذا الفلتر</div>";
+  }else{
+    h+="<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.7rem'>";
+    for(var i=0;i<filtered.length;i++){
+      var a=filtered[i];
+      var b=BM[a.br]||{};
+      var val=a.pp||estVal(a);
+      var sexL=a.sex==="female"?"أنثى":(a.sex==="male"?"ذكر":"صغير");
+      h+="<div class='card' style='padding:.85rem;cursor:pointer' onclick=\"selAnim('"+a.id+"')\">";
+      h+="<div style='display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.45rem'>";
+      h+="<div><div style='font-family:Amiri,serif;color:"+ac+";font-size:.95rem;font-weight:700'>"+a.id+"</div>";
+      h+="<div style='color:var(--mut);font-size:.75rem'>"+(b.n||a.br)+" • "+sexL+" • "+ageStr(a.dob)+"</div></div>";
+      h+="<div style='text-align:left'><div style='color:"+C.tel+";font-size:.75rem;font-weight:700'>"+val.toLocaleString()+" ر</div></div></div>";
+      if(a.note)h+="<div style='color:var(--dim);font-size:.7rem;margin-bottom:.4rem'>"+a.note+"</div>";
+      h+="<div style='display:flex;justify-content:space-between;align-items:center'>";
+      h+="<button class='ob "+clsBtn+"' style='font-size:.68rem;padding:.2rem .5rem' onclick=\"event.stopPropagation();selAnim('"+a.id+"')\">ملف</button>";
+      h+="<button class='db' style='font-size:.65rem' onclick=\"event.stopPropagation();delAnim('"+a.id+"')\">حذف</button></div></div>";
+    }
+    h+="</div>";
+  }
+  h+="</div>";
+  return h;
+}
+function setFbr(v){S.fbr=v;render();}
+function selAnim(id){
+  for(var i=0;i<S.animals.length;i++){if(S.animals[i].id===id){S.selA=S.animals[i];break;}}
+  if(S.selA){S.view="animal";renderNav();render();}
+}
+function delAnim(id){
+  if(!confirm("حذف هذا الحيوان نهائياً؟"))return;
+  var na=[];
+  for(var i=0;i<S.animals.length;i++)if(S.animals[i].id!==id)na.push(S.animals[i]);
+  S.animals=na;delete S.ad[id];
+  if(S.selA&&S.selA.id===id){S.selA=null;S.view="herd";}
+  sav_a();renderNav();render();
+}
+function showAddAnim(farmType){
+  var isGoat=farmType==="goat";
+  var ac=isGoat?C.gnL:C.prL;
+  var opts="";
+  for(var i=0;i<BREEDS.length;i++){
+    if(BREEDS[i].t===(isGoat?"goat":"sheep")){opts+="<option value='"+BREEDS[i].id+"'>"+BREEDS[i].n+"</option>";}
+  }
+  var html="<div style='font-family:Amiri,serif;color:"+ac+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>"+(isGoat?"🐐":"🐑")+" إضافة "+(isGoat?"ماعزة":"خروف")+"</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الرقم *</div><input class='inp' id='ma_id'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>السلالة</div><select class='sel' id='ma_b'>"+opts+"</select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الجنس</div><select class='sel' id='ma_s'><option value='female'>أنثى</option><option value='male'>ذكر</option><option value='kid'>صغير</option></select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>تاريخ الولادة</div><input type='date' class='inp' id='ma_d' value='"+new Date().toISOString().slice(0,10)+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الحالة</div><select class='sel' id='ma_c'><option value=''>—</option><option value='pregnant'>حامل</option><option value='lactating'>حلوب</option><option value='dry'>جافة</option><option value='growing'>نامي</option><option value='fattening'>تسمين</option></select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>سعر الشراء</div><input type='number' class='inp' id='ma_p' placeholder='تلقائي'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>ملاحظات</div><input class='inp' id='ma_n'></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='rb' style='flex:1;background:"+ac+";color:#fff' onclick='saveAnim()'>حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function saveAnim(){
+  var id=(document.getElementById("ma_id").value||"").trim();
+  if(!id)return;
+  for(var i=0;i<S.animals.length;i++)if(S.animals[i].id===id){alert("الرقم موجود مسبقاً");return;}
+  S.animals.push({id:id,br:document.getElementById("ma_b").value,sex:document.getElementById("ma_s").value,dob:document.getElementById("ma_d").value,cond:document.getElementById("ma_c").value,pp:parseFloat(document.getElementById("ma_p").value)||null,note:document.getElementById("ma_n").value});
+  sav_a();closeModal();render();
+}
+
+// ════════════════════════════════════════════════════════════
+// ANIMAL DETAIL
+// ════════════════════════════════════════════════════════════
+function pgAnimal(){
+  if(!S.selA)return"<div style='text-align:center;padding:3rem;color:var(--mut)'>اختر حيواناً من القطيع</div>";
+  var a=S.selA;
+  var b=BM[a.br]||{};
+  var ad=S.ad[a.id]||{};
+  var evs=ad.events||[];
+  var isGoat=b.t==="goat";
+  var ac=isGoat?C.gnL:C.prL;
+  var tab=S.atab||"info";
+  var weights=[];
+  for(var i=0;i<evs.length;i++)if(evs[i].type==="weight")weights.push(evs[i]);
+  weights.sort(function(x,y){return x.date>y.date?1:-1;});
+  var lastW=weights.length>0?weights[weights.length-1]:null;
+  var adg=null;
+  if(weights.length>=2){
+    var days=(new Date(weights[weights.length-1].date)-new Date(weights[0].date))/86400000;
+    if(days>0)adg=Math.round((weights[weights.length-1].val-weights[0].val)/days*10)/10;
+  }
+  var val=a.pp||estVal(a);
+  var sexL=a.sex==="female"?"أنثى":(a.sex==="male"?"ذكر":"صغير");
+
+  var h="<div><div style='display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;flex-wrap:wrap'>";
+  h+="<button class='ob' onclick=\"SV('herd')\">← القطيع</button>";
+  h+="<div style='flex:1'><div style='font-family:Amiri,serif;color:"+ac+";font-size:1.3rem;font-weight:700'>"+a.id+"</div>";
+  h+="<div style='color:var(--mut);font-size:.82rem'>"+(b.n||a.br)+" • "+sexL+" • "+ageStr(a.dob)+"</div></div></div>";
+
+  var tabs=[{id:"info",l:"معلومات"},{id:"events",l:"أحداث ("+evs.length+")"},{id:"breed",l:"تناسل"},{id:"edit",l:"✏️ تعديل"}];
+  var nCls=isGoat?"gn":"pn";
+  h+="<div style='display:flex;gap:.28rem;margin-bottom:.8rem;border-bottom:1px solid var(--bdr);padding-bottom:.4rem;flex-wrap:wrap'>";
+  for(var i=0;i<tabs.length;i++){
+    var cls="sn"+(tab===tabs[i].id?" "+nCls:"");
+    h+="<button class='"+cls+"' onclick=\"setATab('"+tabs[i].id+"')\">"+tabs[i].l+"</button>";
+  }
+  h+="</div>";
+
+  if(tab==="info"){
+    var pairs=[["الرقم",a.id],["السلالة",b.n||a.br],["الجنس",sexL],["العمر",ageStr(a.dob)],["تاريخ الولادة",a.dob||"—"],["الحالة",condL(a.cond)],["سعر الشراء",a.pp?a.pp.toLocaleString()+" ريال":"—"],["القيمة التقديرية",val.toLocaleString()+" ريال"]];
+    h+="<div class='card' style='padding:.85rem;margin-bottom:.65rem'><div class='g2'>";
+    for(var i=0;i<pairs.length;i++){
+      h+="<div class='stat' style='text-align:right'><div style='color:var(--dim);font-size:.65rem'>"+pairs[i][0]+"</div><div style='color:"+ac+";font-size:.82rem;font-weight:700;margin-top:.08rem'>"+pairs[i][1]+"</div></div>";
+    }
+    h+="</div></div>";
+    h+="<div class='g3' style='margin-bottom:.65rem'>";
+    h+="<div class='stat'><div class='statv' style='color:"+C.gL+"'>"+(lastW?lastW.val+" كجم":"—")+"</div><div class='statl'>آخر وزن</div></div>";
+    var adgColor=adg>150?C.gnL:C.org;
+    h+="<div class='stat'><div class='statv' style='color:"+adgColor+"'>"+(adg?adg+"جم/يوم":"—")+"</div><div class='statl'>ADG</div></div>";
+    var births=0;
+    for(var i=0;i<evs.length;i++)if(evs[i].type==="birth")births++;
+    h+="<div class='stat'><div class='statv' style='color:"+C.prL+"'>"+births+"</div><div class='statl'>ولادات</div></div></div>";
+    if(b.sa){
+      h+="<div class='card' style='padding:.7rem;border-right:3px solid "+C.tel+"'>";
+      h+="<div style='color:"+C.tel+";font-size:.75rem;font-weight:700;margin-bottom:.25rem'>📈 توقع البيع</div>";
+      h+="<div style='color:var(--mut);font-size:.8rem;line-height:1.6'>";
+      h+="العمر المثالي: <strong style='color:"+C.gL+"'>"+b.sa+" أشهر</strong> • الوزن المتوقع: <strong style='color:"+C.gL+"'>"+b.sw+" كجم</strong> • القيمة: <strong style='color:"+C.tel+"'>"+(b.sw*40).toLocaleString()+"-"+(b.sw*55).toLocaleString()+" ريال</strong></div></div>";
+    }
+    if(a.note){
+      h+="<div class='card' style='padding:.75rem;margin-top:.65rem'>";
+      h+="<div style='color:var(--mut);font-size:.72rem'>ملاحظات</div>";
+      h+="<div style='font-size:.85rem;margin-top:.2rem'>"+a.note+"</div></div>";
+    }
+  }
+  if(tab==="events"){
+    h+="<button class='rb' style='margin-bottom:.85rem;background:"+ac+"' onclick=\"showAddEvent('"+a.id+"')\">+ تسجيل حدث</button>";
+    if(!evs.length){h+="<div style='text-align:center;color:var(--mut);padding:2rem'>لا توجد أحداث مسجلة</div>";}
+    else{
+      var sorted=evs.slice();
+      sorted.sort(function(x,y){return x.date>y.date?-1:1;});
+      for(var i=0;i<sorted.length;i++){
+        var ev=sorted[i];
+        var idx=-1;
+        for(var j=0;j<evs.length;j++)if(evs[j].id===ev.id){idx=j;break;}
+        var typeMap={weight:"⚖️ وزن",vaccine:"💉 تطعيم",treatment:"💊 علاج",milk:"🥛 حليب",birth:"🐣 ولادة",sale:"💰 بيع",note:"📝 ملاحظة"};
+        var icon=typeMap[ev.type]||ev.type;
+        var vDisp="";
+        if(ev.type==="weight")vDisp=ev.val+" كجم";
+        else if(ev.type==="milk")vDisp=ev.val+" لتر";
+        else if(ev.type==="sale")vDisp=ev.val+" ريال";
+        else if(ev.type==="birth")vDisp=(ev.kids||1)+" مولود";
+        else vDisp=ev.val||"";
+        h+="<div class='card' style='padding:.75rem;margin-bottom:.5rem;border-right:3px solid "+ac+"'>";
+        h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem'>";
+        h+="<span style='color:"+ac+";font-weight:700'>"+icon+"</span>";
+        h+="<div style='display:flex;gap:.4rem;align-items:center'>";
+        h+="<span style='color:var(--mut);font-size:.7rem'>"+ev.date+"</span>";
+        h+="<button class='db' onclick=\"delEvent('"+a.id+"',"+idx+")\">حذف</button></div></div>";
+        if(vDisp)h+="<div style='color:"+C.gL+";font-weight:700;font-size:.88rem'>"+vDisp+"</div>";
+        if(ev.note)h+="<div style='color:var(--dim);font-size:.72rem'>"+ev.note+"</div>";
+        h+="</div>";
+      }
+    }
+  }
+  if(tab==="breed"){
+    var births=[];
+    for(var i=0;i<evs.length;i++)if(evs[i].type==="birth")births.push(evs[i]);
+    h+="<div class='card' style='padding:.85rem;margin-bottom:.75rem'>";
+    h+="<div style='color:"+ac+";font-weight:700;margin-bottom:.55rem'>🧬 توقع النسل</div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>اختر سلالة الأب</div>";
+    h+="<select class='sel' onchange=\"updSire('"+a.id+"',this.value)\">";
+    h+="<option value=''>اختر سلالة الأب...</option>";
+    for(var i=0;i<BREEDS.length;i++){
+      var sel=(a.sire===BREEDS[i].id)?" selected":"";
+      h+="<option value='"+BREEDS[i].id+"'"+sel+">"+BREEDS[i].n+"</option>";
+    }
+    h+="</select></div>";
+    if(a.sire){
+      h+="<div style='margin-top:.6rem;padding:.6rem;background:var(--sur);border-radius:5px'>";
+      h+="<div style='color:var(--dim);font-size:.68rem'>النسل المتوقع</div>";
+      h+="<div style='color:"+ac+";font-weight:700;font-size:.9rem;margin-top:.2rem'>"+predictOff(a.sire,a.br)+"</div></div>";
+    }
+    h+="</div>";
+    h+="<div class='card' style='padding:.85rem'>";
+    h+="<div style='color:"+ac+";font-weight:700;margin-bottom:.45rem'>📊 سجل الولادات</div>";
+    if(!births.length)h+="<div style='color:var(--mut);text-align:center;padding:1rem'>لا توجد ولادات مسجلة</div>";
+    var tot=0;
+    for(var i=0;i<births.length;i++){
+      tot+=(births[i].kids||1);
+      h+="<div style='display:flex;justify-content:space-between;padding:.35rem 0;border-bottom:1px solid var(--bdr);font-size:.82rem'>";
+      h+="<span>"+births[i].date+" — "+(births[i].kids||1)+" مولود</span></div>";
+    }
+    if(births.length)h+="<div style='margin-top:.55rem;color:"+ac+";font-size:.82rem'>الإجمالي: <strong>"+tot+"</strong></div>";
+    h+="</div>";
+  }
+  if(tab==="edit"){
+    h+="<div class='card' style='padding:.85rem'><div style='display:grid;gap:.65rem'>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>السلالة</div>";
+    h+="<select class='sel' onchange=\"updA('br',this.value)\">";
+    for(var i=0;i<BREEDS.length;i++){
+      var s=(a.br===BREEDS[i].id)?" selected":"";
+      h+="<option value='"+BREEDS[i].id+"'"+s+">"+BREEDS[i].n+"</option>";
+    }
+    h+="</select></div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>الحالة</div>";
+    h+="<select class='sel' onchange=\"updA('cond',this.value)\">";
+    var conds=[["","—"],["pregnant","حامل"],["lactating","حلوب"],["dry","جافة"],["growing","نامي"],["fattening","تسمين"],["sick","مريض"]];
+    for(var i=0;i<conds.length;i++){
+      var s=(a.cond===conds[i][0])?" selected":"";
+      h+="<option value='"+conds[i][0]+"'"+s+">"+conds[i][1]+"</option>";
+    }
+    h+="</select></div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>تاريخ الولادة</div>";
+    h+="<input type='date' class='inp' value='"+(a.dob||"")+"' onchange=\"updA('dob',this.value)\"></div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>سعر الشراء</div>";
+    h+="<input type='number' class='inp' value='"+(a.pp||"")+"' placeholder='تلقائي' onchange=\"updAPP(this.value)\"></div>";
+    h+="<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>ملاحظات</div>";
+    h+="<textarea class='inp' rows='2' style='resize:vertical' onchange=\"updA('note',this.value)\">"+(a.note||"")+"</textarea></div>";
+    h+="<button class='db' onclick=\"delAnim('"+a.id+"')\">🗑️ حذف من القطيع</button>";
+    h+="</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+function setATab(t){S.atab=t;render();}
+function updA(k,v){
+  if(!S.selA)return;
+  for(var i=0;i<S.animals.length;i++){
+    if(S.animals[i].id===S.selA.id){S.animals[i][k]=v;S.selA=S.animals[i];break;}
+  }
+  sav_a();
+}
+function updAPP(v){updA("pp",parseFloat(v)||null);}
+function updSire(id,v){
+  for(var i=0;i<S.animals.length;i++){
+    if(S.animals[i].id===id){S.animals[i].sire=v;if(S.selA&&S.selA.id===id)S.selA=S.animals[i];break;}
+  }
+  sav_a();render();
+}
+function delEvent(aid,idx){
+  if(!confirm("حذف؟"))return;
+  if(!S.ad[aid]||!S.ad[aid].events)return;
+  S.ad[aid].events.splice(idx,1);sav_a();render();
+}
+function showAddEvent(aid){
+  var html="<div style='font-family:Amiri,serif;color:"+C.gnL+";font-size:1rem;font-weight:700;margin-bottom:.85rem'>📋 تسجيل حدث — "+aid+"</div>"+
+    "<div style='display:grid;gap:.55rem'>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>نوع الحدث</div>"+
+    "<select class='sel' id='ev_t'><option value='weight'>وزن (كجم)</option><option value='vaccine'>تطعيم</option><option value='treatment'>علاج</option><option value='milk'>حليب (لتر)</option><option value='birth'>ولادة</option><option value='sale'>بيع (ريال)</option><option value='note'>ملاحظة</option></select></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>التاريخ</div><input type='date' class='inp' id='ev_d' value='"+new Date().toISOString().slice(0,10)+"'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>القيمة *</div><input class='inp' id='ev_v' placeholder='35 / PPR / ...'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>عدد المواليد (للولادة)</div><input type='number' class='inp' id='ev_k' value='1'></div>"+
+    "<div><div style='color:var(--mut);font-size:.75rem;margin-bottom:.18rem'>ملاحظات</div><input class='inp' id='ev_n'></div>"+
+    "<div style='display:flex;gap:.45rem'><button class='rb' style='flex:1' onclick=\"saveEvent('"+aid+"')\">حفظ</button><button class='ob' style='flex:1' onclick='closeModal()'>إلغاء</button></div></div>";
+  showModal(html);
+}
+function saveEvent(aid){
+  var type=document.getElementById("ev_t").value;
+  var rawV=document.getElementById("ev_v").value;
+  var val=(type==="weight"||type==="milk"||type==="sale")?parseFloat(rawV)||0:rawV;
+  var ev={id:"e"+Date.now(),type:type,date:document.getElementById("ev_d").value,val:val,kids:parseInt(document.getElementById("ev_k").value)||1,note:document.getElementById("ev_n").value};
+  if(!S.ad[aid])S.ad[aid]={};
+  if(!S.ad[aid].events)S.ad[aid].events=[];
+  S.ad[aid].events.push(ev);
+  sav_a();closeModal();render();
+}
+
+// ════════════════════════════════════════════════════════════
+// VACCINES
+// ════════════════════════════════════════════════════════════
+function pgVax(){
+  var h="<div><div class='sh'>💉 جدول التطعيمات</div>";
+  h+="<div style='padding:.7rem .9rem;background:"+C.rL+"15;border:1px solid "+C.rL+"44;border-radius:6px;margin-bottom:1rem;font-size:.83rem;color:"+C.rL+"'>";
+  h+="تطعيمات PPR والحمى القلاعية وجدري الأغنام إلزامية بموجب المرسوم الملكي م/13.</div>";
+  for(var i=0;i<VAX.length;i++){
+    var v=VAX[i];
+    var pc=priColor(v.p);
+    h+="<div class='card' style='padding:.85rem;margin-bottom:.65rem;border-right:3px solid "+pc+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem'>";
+    h+="<span style='font-weight:700;font-size:.9rem'>"+v.n+"</span>";
+    h+="<div style='width:8px;height:8px;border-radius:50%;background:"+pc+"'></div></div>";
+    h+="<div class='g2' style='gap:.35rem;margin-bottom:.35rem'>";
+    h+="<div class='stat'><div style='color:var(--dim);font-size:.62rem'>العمر الأول</div><div style='font-size:.78rem;font-weight:600;margin-top:.06rem'>"+v.age+"</div></div>";
+    h+="<div class='stat'><div style='color:var(--dim);font-size:.62rem'>التكرار</div><div style='font-size:.78rem;font-weight:600;margin-top:.06rem'>"+v.freq+"</div></div></div>";
+    h+="<div style='background:"+C.grn+"11;border-radius:4px;padding:.42rem .6rem;font-size:.8rem;color:var(--mut)'>"+v.note+"</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// RATION
+// ════════════════════════════════════════════════════════════
+function pgRation(farmType){
+  var isGoat=(farmType==="goat");
+  var ac=isGoat?C.gnL:C.prL;
+  var my=[];
+  for(var i=0;i<S.animals.length;i++){
+    var b=BM[S.animals[i].br];
+    if(b&&b.t===(isGoat?"goat":"sheep"))my.push(S.animals[i]);
+  }
+  if(!my.length)return"<div style='text-align:center;color:var(--mut);padding:3rem'>لا توجد حيوانات في هذا القطيع</div>";
+
+  var groups={pregnant:[],lactating:[],dry:[],growing:[],fattening:[],other:[]};
+  for(var i=0;i<my.length;i++){
+    var c=my[i].cond||"other";
+    if(groups[c])groups[c].push(my[i]);
+    else groups.other.push(my[i]);
+  }
+  var dmReq={pregnant:0.035,lactating:0.045,dry:0.02,growing:0.048,fattening:0.042,other:0.025};
+  var sN={pregnant:"حوامل",lactating:"حلوب",dry:"جافة",growing:"نامية",fattening:"تسمين",other:"أخرى"};
+  var sC={pregnant:C.prL,lactating:C.gnL,dry:C.mut,growing:C.bL,fattening:C.gL,other:C.org};
+
+  function getWt(a){
+    var b=BM[a.br];
+    var m=ageMo(a.dob)||12;
+    if(!b)return 40;
+    if(a.sex==="kid"||(a.sex==="female"&&m<6))return b.wf*0.4;
+    if(a.sex==="female")return b.wf;
+    return b.wm||50;
+  }
+
+  var totalDM=0,totalWater=0;
+  var groupRows=[];
+  var groupHtml="";
+  for(var key in groups){
+    var anim=groups[key];
+    if(!anim.length)continue;
+    var avgWt=0;
+    for(var i=0;i<anim.length;i++)avgWt+=getWt(anim[i]);
+    avgWt=avgWt/anim.length;
+    var dmP=parseFloat((avgWt*dmReq[key]).toFixed(2));
+    var dmG=parseFloat((dmP*anim.length).toFixed(1));
+    var waterP=(key==="lactating"?avgWt*0.18:(key==="growing"?avgWt*0.12:avgWt*0.1));
+    totalDM+=dmG;
+    totalWater+=waterP*anim.length;
+    var ration=[
+      {f:"برسيم حجازي",pct:45},
+      {f:"شعير مجروش",pct:22},
+      {f:"ردة القمح",pct:12},
+      {f:"كسب صويا",pct:9},
+      {f:"نوى التمر",pct:5},
+      {f:"دبس السكر",pct:1.5},
+      {f:"معادن + ملح",pct:1.5+(key==="lactating"?0.5:0)}
+    ];
+    var totalPct=0;
+    for(var i=0;i<ration.length;i++)totalPct+=ration[i].pct;
+    for(var i=0;i<ration.length;i++){
+      ration[i].pct=parseFloat((ration[i].pct/totalPct*100).toFixed(1));
+      ration[i].kg=parseFloat((dmG*ration[i].pct/100).toFixed(2));
+    }
+    var m1=parseFloat((dmG*0.6).toFixed(1));
+    var m2=parseFloat((dmG*0.4).toFixed(1));
+    groupRows.push({key:key,n:anim.length,dmG:dmG,m1:m1,m2:m2});
+    groupHtml+="<div class='card' style='padding:.85rem;margin-bottom:.85rem;border-right:3px solid "+sC[key]+"'>";
+    groupHtml+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.55rem'>";
+    groupHtml+="<div style='font-weight:700;color:"+sC[key]+";font-size:.9rem'>"+sN[key]+" ("+anim.length+" رأس)</div>";
+    groupHtml+="<div style='text-align:left'><div style='color:"+C.gL+";font-weight:700'>"+dmG+" كجم/يوم</div>";
+    groupHtml+="<div style='color:var(--mut);font-size:.7rem'>"+dmP+" كجم/رأس</div></div></div>";
+    groupHtml+="<div style='overflow-x:auto'><table>";
+    groupHtml+="<tr><th>المكون</th><th>%</th><th>كجم/يوم</th></tr>";
+    for(var i=0;i<ration.length;i++){
+      var bg=ration[i].f.indexOf("نوى")>=0?"background:"+C.tel+"11;":"";
+      groupHtml+="<tr style='"+bg+"'><td>"+ration[i].f+"</td><td style='text-align:center;color:"+C.gnL+";font-weight:700'>"+ration[i].pct+"%</td><td style='text-align:center;color:"+C.gL+";font-weight:700'>"+ration[i].kg+"</td></tr>";
+    }
+    groupHtml+="</table></div>";
+    groupHtml+="<div style='margin-top:.5rem;padding:.5rem .65rem;background:var(--sur);border-radius:5px;font-size:.8rem'>";
+    groupHtml+="💧 ماء: <strong style='color:"+C.bL+"'>"+parseFloat((waterP*anim.length).toFixed(1))+" لتر/يوم</strong> للمجموعة";
+    groupHtml+="</div></div>";
+  }
+
+  var h="<div><div style='color:"+ac+";font-family:Amiri,serif;font-size:1.05rem;font-weight:700;margin-bottom:.7rem'>🌿 حاسبة العليقة الذكية</div>";
+  h+="<div class='g3' style='margin-bottom:.85rem'>";
+  h+="<div class='stat'><div class='statv'>"+parseFloat(totalDM.toFixed(1))+" كجم</div><div class='statl'>المادة الجافة/يوم</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.bL+"'>"+parseFloat(totalWater.toFixed(0))+" لتر</div><div class='statl'>المياه/يوم</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.org+"'>"+my.length+" رأس</div><div class='statl'>إجمالي القطيع</div></div></div>";
+  h+="<div class='card' style='padding:.85rem;margin-bottom:.85rem;border-right:3px solid "+ac+"'>";
+  h+="<div style='color:"+ac+";font-family:Amiri,serif;font-size:.95rem;font-weight:700;margin-bottom:.55rem'>📅 توزيع الوجبات اليومي</div>";
+  h+="<div style='overflow-x:auto'><table>";
+  h+="<tr><th>المجموعة</th><th>عدد</th><th>صباح (60%)</th><th>مساء (40%)</th></tr>";
+  for(var i=0;i<groupRows.length;i++){
+    var r=groupRows[i];
+    h+="<tr><td style='color:"+sC[r.key]+";font-weight:700'>"+sN[r.key]+"</td>";
+    h+="<td style='text-align:center'>"+r.n+"</td>";
+    h+="<td style='text-align:center;color:"+C.gL+";font-weight:700'>"+r.m1+" كجم</td>";
+    h+="<td style='text-align:center;color:"+C.org+";font-weight:700'>"+r.m2+" كجم</td></tr>";
+  }
+  h+="</table></div>";
+  h+="<div style='margin-top:.65rem;padding:.55rem .75rem;background:var(--card);border-radius:5px;font-size:.78rem;color:var(--mut)'>";
+  h+="⏰ الصباح 5:00ص (60%) — المساء 5:30م (40%) — ماء 24 ساعة</div></div>";
+  h+="<div style='color:"+ac+";font-family:Amiri,serif;font-size:.95rem;font-weight:700;margin-bottom:.55rem'>تفاصيل كل مجموعة</div>";
+  h+=groupHtml;
+  h+="</div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// BENCHMARKS — FIXED
+// ════════════════════════════════════════════════════════════
+function pgBench(farmType){
+  var isGoat=(farmType==="goat");
+  var ac=isGoat?C.gnL:C.prL;
+  var breeds=[];
+  for(var i=0;i<BREEDS.length;i++){if(BREEDS[i].t===(isGoat?"goat":"sheep"))breeds.push(BREEDS[i]);}
+  var icon=isGoat?"🐐":"🐑";
+  var h="<div><div style='color:"+ac+";font-family:Amiri,serif;font-size:1.05rem;font-weight:700;margin-bottom:.7rem'>"+icon+" 📊 المعايير البحثية</div>";
+  h+="<div style='display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.75rem'>";
+  for(var i=0;i<breeds.length;i++){
+    var b=breeds[i];
+    h+="<div class='card' style='padding:.9rem;border-right:3px solid "+b.dot+"'>";
+    h+="<div style='display:flex;align-items:center;gap:.45rem;margin-bottom:.6rem'>";
+    h+="<div style='width:11px;height:11px;border-radius:50%;background:"+b.dot+"'></div>";
+    h+="<div style='font-family:Amiri,serif;font-size:1rem;font-weight:700'>"+b.n+"</div></div>";
+    var pairs=[["وزن الأنثى",b.wf+" كجم"],["وزن الذكر",b.wm+" كجم"],["ADG",b.adg+" جم/يوم"],["نسبة الذبح",b.dress+"%"],["حليب",b.milk+" كجم/موسم"],["توأمية",b.twin+"%"],["سعر الأنثى",b.pf.toLocaleString()+" ريال"],["سعر الذكر",b.pm.toLocaleString()+" ريال"]];
+    h+="<div class='g2' style='gap:.4rem;margin-bottom:.5rem'>";
+    for(var j=0;j<pairs.length;j++){
+      h+="<div class='stat' style='padding:.4rem'><div style='color:var(--dim);font-size:.6rem'>"+pairs[j][0]+"</div><div style='color:"+C.gL+";font-size:.75rem;font-weight:700;margin-top:.05rem'>"+pairs[j][1]+"</div></div>";
+    }
+    h+="</div>";
+    if(b.notes&&b.notes.length){
+      h+="<div style='border-top:1px solid var(--bdr);padding-top:.45rem;margin-top:.45rem'>";
+      for(var j=0;j<b.notes.length;j++){
+        h+="<div style='display:flex;gap:.3rem;margin-bottom:.2rem'><span style='color:"+ac+";font-size:.7rem'>•</span><span style='color:var(--mut);font-size:.74rem'>"+b.notes[j]+"</span></div>";
+      }
+      h+="</div>";
+    }
+    h+="</div>";
+  }
+  h+="</div></div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// INTEGRATION
+// ════════════════════════════════════════════════════════════
+function pgInteg(){
+  var h="<div><div class='sh' style='color:"+C.tlL+"'>🌴🐐 التكامل النخيل + القطيع</div>";
+  var benefits=[
+    {t:"نوى التمر كعلف",d:"يحل محل 15-25% من تكلفة العلف المركز | محتوى دهن 7-9% + ألياف 12%",save:"15-25% توفير علف"},
+    {t:"الروث كسماد عضوي",d:"22 رأس ينتجون ~3 طن سماد/سنة | يكفي 100-120 نخلة | كامل احتياج النيتروجين العضوي",save:"30-40% توفير سماد"},
+    {t:"ظل النخيل للقطيع",d:"يخفض الحرارة 5-8°م | يحسن ADG 10-15% | يقلل وفيات الصيف",save:"+10-15% نمو"},
+    {t:"بقايا التقليم",d:"السعف الناعم رعي مكمل | الجريد للظل والسياج | الليف لفراش الحيوانات",save:"موارد مجانية"}
+  ];
+  for(var i=0;i<benefits.length;i++){
+    var b=benefits[i];
+    h+="<div class='card' style='padding:.85rem;margin-bottom:.65rem;border-right:3px solid "+C.tlL+"'>";
+    h+="<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem'>";
+    h+="<span style='font-weight:700;color:"+C.tlL+";font-size:.9rem'>"+b.t+"</span>";
+    h+="<span style='font-size:.7rem;color:"+C.gnL+";background:"+C.gnL+"22;padding:2px 8px;border-radius:9px;font-weight:700'>"+b.save+"</span></div>";
+    h+="<div style='color:var(--mut);font-size:.82rem;line-height:1.6'>"+b.d+"</div></div>";
+  }
+  h+="</div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// FINANCE
+// ════════════════════════════════════════════════════════════
+function pgFin(){
+  var palmRev=0;
+  for(var i=0;i<S.yields.length;i++){
+    var pp=(YB[S.yields[i].variety]||{}).pp||0;
+    palmRev+=S.yields[i].price>0?S.yields[i].kg*S.yields[i].price:S.yields[i].kg*pp;
+  }
+  var herdVal=0;
+  for(var i=0;i<S.animals.length;i++)herdVal+=S.animals[i].pp||estVal(S.animals[i]);
+  var goats=0,sheep=0;
+  for(var i=0;i<S.animals.length;i++){
+    var b=BM[S.animals[i].br];
+    if(b){if(b.t==="goat")goats++;else sheep++;}
+  }
+  var h="<div><div class='sh' style='color:"+C.gL+"'>💰 الملخص المالي</div>";
+  h+="<div class='g3' style='margin-bottom:.85rem'>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.gL+"'>"+palmRev.toLocaleString()+"</div><div class='statl'>إيراد النخيل (ريال)</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.tlL+"'>"+herdVal.toLocaleString()+"</div><div class='statl'>قيمة القطيع (ريال)</div></div>";
+  h+="<div class='stat'><div class='statv' style='color:"+C.gnL+"'>"+(palmRev+herdVal).toLocaleString()+"</div><div class='statl'>الإجمالي (ريال)</div></div></div>";
+  h+="<div class='card' style='padding:.85rem;margin-bottom:.65rem;border-right:3px solid "+C.gL+"'>";
+  h+="<div style='color:"+C.gL+";font-weight:700;font-size:.88rem;margin-bottom:.4rem'>🌴 النخيل (502 شجرة)</div>";
+  h+="<div style='color:var(--mut);font-size:.82rem;line-height:1.7'>إيراد محتمل سنوي (سعر سوقي): <strong style='color:"+C.gL+"'>~265,000 ريال</strong><br>";
+  h+="مع بيع مباشر للعجوة: <strong style='color:"+C.gnL+"'>+150,000 ريال</strong></div></div>";
+  h+="<div class='card' style='padding:.85rem;border-right:3px solid "+C.tlL+"'>";
+  h+="<div style='color:"+C.tlL+";font-weight:700;font-size:.88rem;margin-bottom:.4rem'>🐐🐑 القطيع ("+S.animals.length+" رأس)</div>";
+  h+="<div style='color:var(--mut);font-size:.82rem;line-height:1.7'>الماعز: <strong>"+goats+"</strong> | الأغنام: <strong>"+sheep+"</strong><br>";
+  h+="قيمة سوقية حالية: <strong style='color:"+C.tlL+"'>"+herdVal.toLocaleString()+" ريال</strong></div></div>";
+  h+="</div>";
+  return h;
+}
+
+// ════════════════════════════════════════════════════════════
+// SYNC
+// ════════════════════════════════════════════════════════════
+function pgSync(){
+  var h="<div><div class='sh' style='color:"+C.tlL+"'>☁️ مشاركة البيانات</div>";
+  h+="<div class='card' style='padding:.85rem;margin-bottom:.7rem;border-right:3px solid "+C.tlL+"'>";
+  h+="<div style='color:"+C.tlL+";font-weight:700;font-size:.88rem;margin-bottom:.4rem'>📤 تصدير البيانات</div>";
+  h+="<div style='color:var(--mut);font-size:.78rem;margin-bottom:.6rem;line-height:1.6'>صدّر ملف JSON يحتوي على كل بيانات المزرعة — أرسله عبر WhatsApp أو البريد لمشاركتها مع المشرف.</div>";
+  h+="<button class='gb' onclick='exportData()'>⬇️ تصدير بيانات المزرعة</button></div>";
+  h+="<div class='card' style='padding:.85rem;border-right:3px solid "+C.bL+"'>";
+  h+="<div style='color:"+C.bL+";font-weight:700;font-size:.88rem;margin-bottom:.4rem'>📥 استيراد البيانات</div>";
+  h+="<div style='color:var(--mut);font-size:.78rem;margin-bottom:.6rem;line-height:1.6'>⚠️ سيستبدل البيانات الحالية بالكامل.</div>";
+  h+="<input type='file' id='impFile' accept='.json' style='display:none' onchange='importData(this.files[0])'>";
+  h+="<button class='gb' onclick=\"document.getElementById('impFile').click()\">⬆️ استيراد من ملف</button></div>";
+  h+="</div>";
+  return h;
+}
+function exportData(){
+  var d={trees:S.trees,td:S.td,animals:S.animals,ad:S.ad,yields:S.yields,pdl:S.pdl,adl:S.adl,exported:new Date().toISOString()};
+  var b=new Blob([JSON.stringify(d,null,2)],{type:"application/json"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(b);
+  a.download="farm_"+new Date().toISOString().slice(0,10)+".json";
+  a.click();
+}
+function importData(file){
+  if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var d=JSON.parse(e.target.result);
+      if(d.trees)S.trees=d.trees;
+      if(d.td)S.td=d.td;
+      if(d.animals)S.animals=d.animals;
+      if(d.ad)S.ad=d.ad;
+      if(d.yields)S.yields=d.yields;
+      if(d.pdl)S.pdl=d.pdl;
+      if(d.adl)S.adl=d.adl;
+      sav_a();sav_t();sav_td();
+      sv("yields",S.yields);sv("pdl",S.pdl);sv("adl",S.adl);
+      render();alert("تم الاستيراد بنجاح");
+    }catch(err){alert("خطأ: "+err.message);}
+  };
+  reader.readAsText(file);
+}
+
+// ════════════════════════════════════════════════════════════
+// INIT (must be last)
+// ════════════════════════════════════════════════════════════
+loadAll();
+renderNav();
+render();
+</script></body></html>
